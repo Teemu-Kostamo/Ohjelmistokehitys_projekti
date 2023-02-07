@@ -24,5 +24,19 @@ namespace Kanban
         {
             InitializeComponent();
         }
+
+        private void btnLuoUusiKayttaja_Click(object sender, RoutedEventArgs e)
+        {
+            NewUser newUser = new NewUser();
+            newUser.Owner = this;
+            newUser.ShowDialog();
+        }
+
+        private void btnLuoUusiTaski_Click(object sender, RoutedEventArgs e)
+        {
+            NewTask newTask = new NewTask();
+            newTask.Owner = this;
+            newTask.ShowDialog();
+        }
     }
 }
