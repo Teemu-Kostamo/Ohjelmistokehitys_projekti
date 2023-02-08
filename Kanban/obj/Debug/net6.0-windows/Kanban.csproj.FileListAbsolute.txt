@@ -1,0 +1,5 @@
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Kanban.csproj.AssemblyReference.cache
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Kanban_MarkupCompile.cache
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Kanban_MarkupCompile.lref
