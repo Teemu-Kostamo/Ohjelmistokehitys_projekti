@@ -8,3 +8,23 @@ C:\Users\jani2\Desktop\Ohjelmointi\cSharp\Ohjelmistokehitys_projekti\Kanban\obj\
 C:\Users\jani2\Desktop\Ohjelmointi\cSharp\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\jani2\Desktop\Ohjelmointi\cSharp\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Kanban_MarkupCompile.cache
 C:\Users\jani2\Desktop\Ohjelmointi\cSharp\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Kanban_MarkupCompile.lref
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Kirjautumissivu.g.cs
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Käyttäjänluonti.g.cs
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\bin\Debug\net6.0-windows\Kanban.exe
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\bin\Debug\net6.0-windows\Kanban.deps.json
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\bin\Debug\net6.0-windows\Kanban.runtimeconfig.json
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\bin\Debug\net6.0-windows\Kanban.dll
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\bin\Debug\net6.0-windows\Kanban.pdb
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Kirjautumissivu.baml
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Käyttäjänluonti.baml
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Kanban.g.resources
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Kanban.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Kanban.AssemblyInfoInputs.cache
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Kanban.AssemblyInfo.cs
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Kanban.csproj.CoreCompileInputs.cache
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Kanban.dll
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\refint\Kanban.dll
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Kanban.pdb
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Kanban.genruntimeconfig.cache
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\ref\Kanban.dll

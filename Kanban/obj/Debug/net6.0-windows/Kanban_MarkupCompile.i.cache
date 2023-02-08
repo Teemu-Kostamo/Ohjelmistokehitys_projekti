@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\jani2\Desktop\Ohjelmointi\cSharp\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\
 Kanban
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\jani2\Desktop\Ohjelmointi\cSharp\Ohjelmistokehitys_projekti\Kanban\App.xaml
-11407045341
+C:\Users\kosti\OneDrive - Hämeen ammattikorkeakoulu\Hamk\Kurssit\3 - Ohjelmointi\Ohjelmistokehitys\Ohjelmistokehitys_projekti\Kanban\App.xaml
+3-1207380195
 
-51808560420
+8-963163283
 194237474483
-MainWindow.xaml;
+Kirjautumissivu.xaml;Käyttäjänluonti.xaml;MainWindow.xaml;
 
-False
+True
 

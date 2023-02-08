@@ -72,6 +72,9 @@ namespace Käyttäjäsivu
         // "Lisää uusi" painikkeen toiminnallisuudet
         private void Signup_Button_Click(object sender, RoutedEventArgs e)
         {
+            SubWindow subWindow = new SubWindow();
+            subWindow.Show();
+            /*
             string nimi = Signer.Text;
             string pass = signerpass.Password;
             bool user_found = false;
@@ -109,6 +112,7 @@ namespace Käyttäjäsivu
                     Reset_Input();
                 }
             }
+            */
         }
     }
 }

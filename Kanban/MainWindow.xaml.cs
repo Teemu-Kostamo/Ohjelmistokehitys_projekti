@@ -20,23 +20,30 @@ namespace Kanban
     /// </summary>
     public partial class MainWindow : Window
     {
+        int testi = 0;
         public MainWindow()
         {
             InitializeComponent();
         }
-
+        
         private void btnLuoUusiKayttaja_Click(object sender, RoutedEventArgs e)
         {
+            testi = 1;
+            /*
             NewUser newUser = new NewUser();
             newUser.Owner = this;
             newUser.ShowDialog();
+            */
         }
 
         private void btnLuoUusiTaski_Click(object sender, RoutedEventArgs e)
         {
+            testi = 2;
+            /*
             NewTask newTask = new NewTask();
             newTask.Owner = this;
             newTask.ShowDialog();
+            */
         }
     }
 }

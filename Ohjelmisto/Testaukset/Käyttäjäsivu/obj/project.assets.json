@@ -8,24 +8,19 @@
     "net7.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\jani2\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\kosti\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jani2\\Desktop\\Ohjelmointi\\cSharp\\Ohjelmistokehitys_projekti\\Ohjelmisto\\Testaukset\\Käyttäjäsivu\\Käyttäjäsivu.csproj",
+      "projectUniqueName": "C:\\Users\\kosti\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\Ohjelmistokehitys_projekti\\Ohjelmisto\\Testaukset\\Käyttäjäsivu\\Käyttäjäsivu.csproj",
       "projectName": "Käyttäjäsivu",
-      "projectPath": "C:\\Users\\jani2\\Desktop\\Ohjelmointi\\cSharp\\Ohjelmistokehitys_projekti\\Ohjelmisto\\Testaukset\\Käyttäjäsivu\\Käyttäjäsivu.csproj",
-      "packagesPath": "C:\\Users\\jani2\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jani2\\Desktop\\Ohjelmointi\\cSharp\\Ohjelmistokehitys_projekti\\Ohjelmisto\\Testaukset\\Käyttäjäsivu\\obj\\",
+      "projectPath": "C:\\Users\\kosti\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\Ohjelmistokehitys_projekti\\Ohjelmisto\\Testaukset\\Käyttäjäsivu\\Käyttäjäsivu.csproj",
+      "packagesPath": "C:\\Users\\kosti\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kosti\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\Ohjelmistokehitys_projekti\\Ohjelmisto\\Testaukset\\Käyttäjäsivu\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\jani2\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\kosti\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -33,7 +28,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
