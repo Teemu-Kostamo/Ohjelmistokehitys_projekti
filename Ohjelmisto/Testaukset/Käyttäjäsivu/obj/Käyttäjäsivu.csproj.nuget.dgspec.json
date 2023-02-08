@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kosti\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\Versionhallinta_tehtava\\Ohjelmisto_projekti\\Käyttäjäsivu\\Käyttäjäsivu.csproj": {}
+    "C:\\Users\\kosti\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\testi\\Ohjelmisto\\Testaukset\\Käyttäjäsivu\\Käyttäjäsivu.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kosti\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\Versionhallinta_tehtava\\Ohjelmisto_projekti\\Käyttäjäsivu\\Käyttäjäsivu.csproj": {
+    "C:\\Users\\kosti\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\testi\\Ohjelmisto\\Testaukset\\Käyttäjäsivu\\Käyttäjäsivu.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kosti\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\Versionhallinta_tehtava\\Ohjelmisto_projekti\\Käyttäjäsivu\\Käyttäjäsivu.csproj",
+        "projectUniqueName": "C:\\Users\\kosti\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\testi\\Ohjelmisto\\Testaukset\\Käyttäjäsivu\\Käyttäjäsivu.csproj",
         "projectName": "Käyttäjäsivu",
-        "projectPath": "C:\\Users\\kosti\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\Versionhallinta_tehtava\\Ohjelmisto_projekti\\Käyttäjäsivu\\Käyttäjäsivu.csproj",
+        "projectPath": "C:\\Users\\kosti\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\testi\\Ohjelmisto\\Testaukset\\Käyttäjäsivu\\Käyttäjäsivu.csproj",
         "packagesPath": "C:\\Users\\kosti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kosti\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\Versionhallinta_tehtava\\Ohjelmisto_projekti\\Käyttäjäsivu\\obj\\",
+        "outputPath": "C:\\Users\\kosti\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\testi\\Ohjelmisto\\Testaukset\\Käyttäjäsivu\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kosti\\AppData\\Roaming\\NuGet\\NuGet.Config",
