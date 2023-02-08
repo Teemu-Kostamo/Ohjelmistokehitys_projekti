@@ -1,0 +1,20 @@
+﻿<Window x:Class="Käyttäjäsivu.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Käyttäjäsivu"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="400">
+    <Grid Height="436" VerticalAlignment="Top">
+        <TextBlock HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" Text="Kirjautuminen
+" VerticalAlignment="Top" FontSize="22"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,94,0,0" TextWrapping="Wrap" Text="Käyttäjätunnus" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="Signer" HorizontalAlignment="Center" Margin="0,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <PasswordBox x:Name="signerpass" HorizontalAlignment="Center" Margin="0,216,0,0" VerticalAlignment="Top" Width="140"/>
+        <Button Content="Kirjaudu sisään" HorizontalAlignment="Center" Margin="0,264,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="Login_Button_Click"/>
+        <Button Content="Luo uusi" HorizontalAlignment="Center" Margin="0,309,0,0" VerticalAlignment="Top" Width="60" Height="30" Click="Signup_Button_Click"/>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Salasana" VerticalAlignment="Top" FontSize="16" Margin="0,173,0,0"/>
+        <TextBlock x:Name="login_error_text" Foreground="Red" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+    </Grid>
+</Window>
