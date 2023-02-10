@@ -77,7 +77,7 @@ namespace Kanban {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Kanban;component/kirjautumissivu.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Kanban;V1.0.0.0;component/kirjautumissivu.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Kirjautumissivu.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
