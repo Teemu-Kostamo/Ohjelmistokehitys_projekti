@@ -24,6 +24,7 @@ namespace Kanban
     /// 
     public partial class Kirjautumissivu : Window
     {
+        public static string kayttaja = "";
         private string login_error = "Kirjautuminen ei onnistunut, koska käyttäjätunnus ja salasana eivät täsmää.";
 
         private SolidColorBrush error = new SolidColorBrush(Colors.Red);
@@ -46,6 +47,7 @@ namespace Kanban
         {
             string nimi = Signer.Text;
             string pass = signerpass.Password;
+            kayttaja = nimi;
             MainWindow paaohjelma = new MainWindow();
             paaohjelma.Show();
             Close();

@@ -39,7 +39,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ComboBox HorizontalAlignment="Left" Margin="98,44,0,0" VerticalAlignment="Top" Width="221"/>
+        <ComboBox x:Name="kayttajat" HorizontalAlignment="Left" Margin="98,44,0,0" VerticalAlignment="Top" Width="221"/>
         <Label x:Name="lblUser" Content="Käyttäjä&#xD;&#xA;" Height="27" Margin="27,41,582,0" VerticalAlignment="Top" AutomationProperties.Name="Käyttäjä"/>
         <Button x:Name="btnLuoUusiKayttaja" Content="" HorizontalAlignment="Left" Height="22" Margin="338,44,0,0" VerticalAlignment="Top" Width="23" AutomationProperties.HelpText="Luo uusi käyttäjä" Click="btnLuoUusiKayttaja_Click"/>
         <Button x:Name="btnLuoUusiTaski" Content="Luo uusi tehtävä" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="22" Margin="618,44,0,0" VerticalAlignment="Top" Width="144" Click="btnLuoUusiTaski_Click"/>

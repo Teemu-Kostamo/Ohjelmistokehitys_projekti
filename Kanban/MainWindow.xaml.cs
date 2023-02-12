@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using User_Class;
+
 
 namespace Kanban
 {
@@ -24,16 +26,14 @@ namespace Kanban
         public MainWindow()
         {
             InitializeComponent();
+            kayttajat.Items.Add(Kirjautumissivu.kayttaja);
+            kayttajat.Text= Kirjautumissivu.kayttaja.ToString();
         }
         
         private void btnLuoUusiKayttaja_Click(object sender, RoutedEventArgs e)
-        {
-            testi = 1;
-            /*
-            NewUser newUser = new NewUser();
-            newUser.Owner = this;
-            newUser.ShowDialog();
-            */
+        {   
+            Kayttajanluonti newUser = new Kayttajanluonti();
+            newUser.ShowDialog();   
         }
 
         private void btnLuoUusiTaski_Click(object sender, RoutedEventArgs e)
