@@ -7,24 +7,25 @@
         mc:Ignorable="d"
         Title="Luo uusi käyttäjä" Height="300" Width="400">
     <Grid>
-        <Label Content="Etunimi" HorizontalAlignment="Left" Margin="11,31,0,0" VerticalAlignment="Top" Width="77" Height="26"/>
-        <TextBox HorizontalAlignment="Left" Margin="110,35,0,0" TextWrapping="Wrap" Text="Etunimi" VerticalAlignment="Top" Width="260" Height="20"/>
+        <Label Content="Etunimi" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="78" Height="26"/>
+        <TextBox HorizontalAlignment="Left" Margin="110,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="20"/>
 
-        <Label Content="Sukunimi" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Height="26" Width="78"/>
-        <TextBox HorizontalAlignment="Left" Margin="110,70,0,0" TextWrapping="Wrap" Text="Sukunimi" VerticalAlignment="Top" Width="260" Height="20"/>
+        <Label Content="Sukunimi" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Height="26" Width="78"/>
+        <TextBox HorizontalAlignment="Left" Margin="110,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="20"/>
 
         <Label Content="Käyttäjänimi" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" Height="26" Width="78"/>
-        <TextBox HorizontalAlignment="Left" Margin="110,104,0,0" TextWrapping="Wrap" Text="Käyttäjänimi" VerticalAlignment="Top" Width="260" Height="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="110,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="20"/>
 
         <Label Content="Salasana" HorizontalAlignment="Left" Margin="11,138,0,0" VerticalAlignment="Top" Height="26" Width="78"/>
-        <TextBox HorizontalAlignment="Left" Margin="110,141,0,0" TextWrapping="Wrap" Text="Salasana" VerticalAlignment="Top" Width="260" Height="20"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="110,142,0,0" VerticalAlignment="Top" Width="260" Height="20"/>
+        
+        <Label Content="Rooli" HorizontalAlignment="Left" Margin="11,169,0,0" VerticalAlignment="Top" Width="78" Height="26"/>
 
-        <Button Content="Ok" HorizontalAlignment="Left" Margin="110,183,0,0" VerticalAlignment="Top" Width="107"/>
+        <Button Content="Ok" HorizontalAlignment="Left" Margin="110,229,0,0" VerticalAlignment="Top" Width="107"/>
 
-        <Button Content="Peruuta" HorizontalAlignment="Left" Margin="256,183,0,0" VerticalAlignment="Top" Width="114"/>
+        <Button Content="Peruuta" HorizontalAlignment="Left" Margin="256,229,0,0" VerticalAlignment="Top" Width="114"/>
+        
 
-        <Label Content="Luomis päivämäärä" HorizontalAlignment="Left" Margin="11,228,0,0" VerticalAlignment="Top" Width="117"/>
-        <DatePicker HorizontalAlignment="Left" Margin="177,229,0,0" VerticalAlignment="Top" Width="107"/>
 
     </Grid>
 </Window>
