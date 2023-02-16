@@ -38,12 +38,8 @@ namespace Kanban
 
         private void btnLuoUusiTaski_Click(object sender, RoutedEventArgs e)
         {
-            testi = 2;
-            /*
-            NewTask newTask = new NewTask();
-            newTask.Owner = this;
+            Tehtavanluonti newTask = new Tehtavanluonti();
             newTask.ShowDialog();
-            */
         }
     }
 }
