@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Xh4cA6LYe2tIYgLUn8ry1+wDUu2EKOEqHNqF6jTo9xTQumMFMgret8flXP+ZST6TnM33pj4kPVT+cAZgUGZZSg==",
+  "dgSpecHash": "jhsRPGL+o9mBWBkMam1LlKxY2YdnxjPaEzNdHcZheD7RlHXZHoZqNAoB2l3gEAPcOA39oBK0T/HhSWcpAURONQ==",
   "success": true,
-  "projectFilePath": "F:\\Asiakirjat\\HAMK\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\Ohjelmistokehitys_projekti\\Kanban\\Kanban.csproj",
+  "projectFilePath": "F:\\Asiakirjat\\HAMK\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\Ohjelmistokehitys_projekti\\Ohjelmistokehitys_projekti\\Kanban\\Kanban.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kosti\\.nuget\\packages\\microsoft.netcore.platforms\\1.0.1\\microsoft.netcore.platforms.1.0.1.nupkg.sha512",
     "C:\\Users\\kosti\\.nuget\\packages\\microsoft.netcore.targets\\1.0.1\\microsoft.netcore.targets.1.0.1.nupkg.sha512",
