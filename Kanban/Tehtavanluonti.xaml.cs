@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,9 +25,28 @@ namespace Kanban
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Peruuta_Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        private void OK_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Tehtava tehtava = new Tehtava()
+            {
+                Name = TehtavaNimi.Text,
+                Tag = TehtavaTagi.Text,
+                Description = TehtavaKuvaus.Text,
+                DueDate = TehtavaMääräaika.Text,
+                Status = TehtavaStatus.Text
+            };
+
+            using (SQLiteConnection connection = new SQLiteConnection(App.Tasks_databasePath))
+            {
+                connection.CreateTable<Tehtava>();
+                connection.Insert(tehtava);
+            }
+
+            Close();
         }
     }
 }
