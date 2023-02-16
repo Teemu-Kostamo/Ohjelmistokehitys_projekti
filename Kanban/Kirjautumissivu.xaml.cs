@@ -34,6 +34,7 @@ namespace Kanban
         public Kirjautumissivu()
         {
             InitializeComponent();
+            Debug.WriteLine("TESTITESTITESTI FOLDERPATH: "+App.databasePath);
         }
         // Nollataan käyttäjäsyöte kentät
         private void Reset_Input()
