@@ -1,4 +1,2 @@
 *.db
 *.log
-/Kanban/obj
-/.vs
