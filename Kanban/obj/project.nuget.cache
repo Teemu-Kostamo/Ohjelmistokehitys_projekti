@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "UsA9GMpbc7s9e5Fi5IJi35mkDxAen75GtdUHyAbYRRG+TNCi6z492dsKIOAWi1b9x6XeOFqz94ph9iG0OOeGbQ==",
+  "dgSpecHash": "jqfWF1iS335WngAWR5J+75fRFurkPNGZxT5nUodRKFBjPi1g2YqacO6a94nWjf+8QdnOTM6BTdnWFyORRH22qA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jani2\\Desktop\\Ohjelmointi\\cSharp\\Ohjelmistokehitys_projekti\\Kanban\\Kanban.csproj",
+  "projectFilePath": "C:\\Users\\kosti\\OneDrive - Hämeen ammattikorkeakoulu\\Hamk\\Kurssit\\3 - Ohjelmointi\\Ohjelmistokehitys\\Ohjelmistokehitys_projekti\\Kanban\\Kanban.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\jani2\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",
-    "C:\\Users\\jani2\\.nuget\\packages\\sqlite-net-pcl-ecp\\1.3.3\\sqlite-net-pcl-ecp.1.3.3.nupkg.sha512",
-    "C:\\Users\\jani2\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
-    "C:\\Users\\jani2\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
-    "C:\\Users\\jani2\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.4\\sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",
-    "C:\\Users\\jani2\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.4\\sqlitepclraw.provider.dynamic_cdecl.2.0.4.nupkg.sha512",
-    "C:\\Users\\jani2\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+    "C:\\Users\\kosti\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",
+    "C:\\Users\\kosti\\.nuget\\packages\\sqlite-net-pcl-ecp\\1.3.3\\sqlite-net-pcl-ecp.1.3.3.nupkg.sha512",
+    "C:\\Users\\kosti\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
+    "C:\\Users\\kosti\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
+    "C:\\Users\\kosti\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.4\\sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",
+    "C:\\Users\\kosti\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.4\\sqlitepclraw.provider.dynamic_cdecl.2.0.4.nupkg.sha512",
+    "C:\\Users\\kosti\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
   ],
   "logs": []
 }

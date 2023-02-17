@@ -28,7 +28,7 @@ namespace Kanban
         private async void lastName_TextChanged(object sender, TextChangedEventArgs e)
         {
             await Task.Delay(4000);
-            userName.Text = firstName.Text.Substring(0, 3) + lastName.Text.Substring(0, 3);
+            userName.Text = (firstName.Text.Substring(0, 3) + lastName.Text.Substring(0, 3)).ToLower();
         }
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {

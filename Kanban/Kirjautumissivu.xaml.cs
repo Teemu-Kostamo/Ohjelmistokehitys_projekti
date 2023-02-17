@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using User_Class;
+using SQLite;
 
 namespace Kanban
 {
@@ -30,11 +31,34 @@ namespace Kanban
         private SolidColorBrush error = new SolidColorBrush(Colors.Red);
         private SolidColorBrush normal = new SolidColorBrush(Colors.Black);
 
-        List<User> users = new List<User>();
+        List<CreateNewUser> users = new List<CreateNewUser>();
         public Kirjautumissivu()
         {
             InitializeComponent();
             Debug.WriteLine("TESTITESTITESTI FOLDERPATH: "+App.Users_databasePath);
+
+            ReadDataBase();
+        }
+        //Tietokannan haku funktio
+        void ReadDataBase()
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(App.Users_databasePath))
+            {
+                conn.CreateTable<CreateNewUser>();
+                users = (conn.Table<CreateNewUser>().ToList()).OrderBy(u => u.Id).ToList();
+                Debug.WriteLine("DATABASE");
+                if (users == null)
+                {
+                    Debug.WriteLine("Tyhjä");
+                }
+                else
+                {
+                    foreach (CreateNewUser user in users)
+                    {
+                        Debug.WriteLine(user.Username);
+                    }
+                }
+            }
         }
         // Nollataan käyttäjäsyöte kentät
         private void Reset_Input()
@@ -48,29 +72,29 @@ namespace Kanban
         {
             string nimi = Signer.Text;
             string pass = signerpass.Password;
-            kayttaja = nimi;
-            MainWindow paaohjelma = new MainWindow();
-            paaohjelma.Show();
-            Close();
-            // Käyttäjä ja salasana täsmäävät
-            //ALLA OLEVA TOIMIVA KOODI ÄLÄ POISTA
-            /*
-            foreach (User use in users)
+            bool correct = false;
+
+            ReadDataBase();
+
+            foreach (CreateNewUser user in users)
             {
-                if (use.Get_Username() == nimi && use.Get_Password() == pass)
+                if (user.Username == nimi && user.Password == pass)
                 {
-                    Reset_Input();
-                    MainWindow paaohjelma = new MainWindow();
-                    paaohjelma.Show();
+                    correct = true;
+                    break;
                 }
-                // Käyttäjä tai salasana eivät täsmää
-                else
-                {
-                    Reset_Input();
-                    login_error_text.Foreground = error;
-                    login_error_text.Text = login_error;
-                }
-            }*/
+            }
+            if (correct == true)
+            {
+                MainWindow paaohjelma = new MainWindow();
+                paaohjelma.Show();
+                Close();
+            }
+            else
+            {
+                login_error_text.Text = login_error;
+                Reset_Input();
+            }
         }
 
         // "Lisää uusi" painikkeen toiminnallisuudet
@@ -79,47 +103,6 @@ namespace Kanban
             //Siirrytään käyttäjänluonti ikkunaan sulkematta kirjautumissivua
             Kayttajanluonti kayttajanluonti = new Kayttajanluonti();
             kayttajanluonti.Show();
-
-            //TOIMIVA KOODI MAHDOLLISESTI KÄYTTÄJÄNLUONTIIN?
-            /*
-            string nimi = Signer.Text;
-            string pass = signerpass.Password;
-            bool user_found = false;
-
-            // Lisätessä uutta käyttäjää käyttäjä löytyy jo
-            foreach (User use in users)
-            {
-                if (nimi == use.Get_Username())
-                {
-                    user_found = true;
-                }
-            }
-            if (user_found) 
-            { 
-                Reset_Input();
-                login_error_text.Foreground = error;
-                login_error_text.Text = user_found_error;
-            }
-            // Luodaan uusi käyttäjä
-            else
-            {
-                //Käyttäjätunnus ja salasana eivät tyhjiä -> Hyväksytään uusi käyttäjä
-                if (nimi != string.Empty && pass != string.Empty)
-                {
-                    users.Add(new User(nimi, pass));
-                    login_error_text.Foreground = normal;
-                    login_error_text.Text = user_added;
-                    Reset_Input();
-                }
-                //Käyttäjätunnus tai salasana tyhjiä -> palautetaan virheilmoitus
-                else if (nimi == string.Empty || pass == string.Empty) 
-                {
-                    login_error_text.Foreground = error;
-                    login_error_text.Text = invalid_signup;
-                    Reset_Input();
-                }
-            }
-            */
         }
     }
 }
