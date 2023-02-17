@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,35 @@ namespace Kanban
         public Kayttajanluonti()
         {
             InitializeComponent();
+        }
+
+        private async void lastName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            await Task.Delay(4000);
+            userName.Text = firstName.Text.Substring(0, 3) + lastName.Text.Substring(0, 3);
+        }
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateNewUser u = new CreateNewUser()
+            {
+                Username = userName.Text,
+                Name = firstName.Text + " " + lastName.Text,
+                Password = Convert.ToString(passWord.Password),
+                Role = rolePosition.Text,
+            };
+
+            Close();
+
+            using (SQLiteConnection connection = new SQLiteConnection(App.Users_databasePath))
+            {
+                connection.CreateTable<CreateNewUser>();
+                connection.Insert(u);
+            }
         }
     }
 }
