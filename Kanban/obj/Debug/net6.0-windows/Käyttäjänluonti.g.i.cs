@@ -93,7 +93,7 @@ namespace Kanban {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Kanban;V1.0.0.0;component/k%c3%a4ytt%c3%a4j%c3%a4nluonti.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Kanban;component/k%c3%a4ytt%c3%a4j%c3%a4nluonti.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Käyttäjänluonti.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

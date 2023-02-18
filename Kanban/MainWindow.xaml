@@ -6,47 +6,63 @@
         xmlns:local="clr-namespace:Kanban"
         mc:Ignorable="d"
         Title="Kätevä Kanban-työkalu" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="27*"/>
-            <ColumnDefinition Width="5*"/>
-        </Grid.ColumnDefinitions>
-        <ListView x:Name="listToDo" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,117,490,10">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView x:Name="listWIP" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="210,117,290,10">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView x:Name="listTesting" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="419,117,81,10">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView x:Name="listDone" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="618,117,10,10" Grid.ColumnSpan="2">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ComboBox x:Name="kayttajat" HorizontalAlignment="Left" Margin="98,44,0,0" VerticalAlignment="Top" Width="221"/>
-        <Label x:Name="lblUser" Content="Käyttäjä&#xD;&#xA;" Height="27" Margin="27,41,582,0" VerticalAlignment="Top" AutomationProperties.Name="Käyttäjä"/>
-        <Button x:Name="btnLuoUusiKayttaja" Content="" HorizontalAlignment="Left" Height="22" Margin="338,44,0,0" VerticalAlignment="Top" Width="23" AutomationProperties.HelpText="Luo uusi käyttäjä" Click="btnLuoUusiKayttaja_Click"/>
-        <Button x:Name="btnLuoUusiTaski" Content="Luo uusi tehtävä" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="22" Margin="618,44,0,0" VerticalAlignment="Top" Width="144" Click="btnLuoUusiTaski_Click"/>
-        <Label x:Name="lblToDo" Content="To Do" HorizontalAlignment="Left" Height="26" Margin="73,86,0,0" VerticalAlignment="Top" Width="49"/>
-        <Label x:Name="lblWIP" Content="Work in Progress" HorizontalAlignment="Left" Height="26" Margin="242,86,0,0" VerticalAlignment="Top" Width="111"/>
-        <Label x:Name="lblTesting" Content="Testing" HorizontalAlignment="Left" Height="26" Margin="479,86,0,0" VerticalAlignment="Top" Width="55"/>
-        <Label x:Name="lblDone" Content="Done" HorizontalAlignment="Left" Height="26" Margin="3,86,0,0" VerticalAlignment="Top" Width="52" Grid.Column="1"/>
-
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Tiedosto">
+                <MenuItem Header="_Luo uusi tehtävä" />
+                <MenuItem Header="_Kirjaudu ulos" Click="menubtnKirjauduUlos"/>
+                <Separator />
+                <MenuItem x:Name="menuPoistaKayttaja" Header="_Poista käyttäjä" IsCheckable="True" />
+                <MenuItem Header="_Lopeta" Click="menubtnLopeta" />
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="27*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <ListView x:Name="listToDo" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,117,490,10">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ListView x:Name="listWIP" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="210,117,290,10">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ListView x:Name="listTesting" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="419,117,81,10">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ListView x:Name="listDone" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="618,117,10,10" Grid.ColumnSpan="2">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ComboBox x:Name="kayttajat" HorizontalAlignment="Left" Margin="98,44,0,0" VerticalAlignment="Top" Width="221"/>
+            <Label x:Name="lblUser" Content="Käyttäjä&#xD;&#xA;" Height="27" Margin="27,41,582,0" VerticalAlignment="Top" AutomationProperties.Name="Käyttäjä"/>
+            <Button x:Name="btnLuoUusiTaski" Content="Luo uusi tehtävä" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="22" Margin="618,44,0,0" VerticalAlignment="Top" Width="144" Click="btnLuoUusiTaski_Click"/>
+            <Label x:Name="lblToDo" Content="To Do" HorizontalAlignment="Left" Height="26" Margin="73,86,0,0" VerticalAlignment="Top" Width="49"/>
+            <Label x:Name="lblWIP" Content="Work in Progress" HorizontalAlignment="Left" Height="26" Margin="242,86,0,0" VerticalAlignment="Top" Width="111"/>
+            <Label x:Name="lblTesting" Content="Testing" HorizontalAlignment="Left" Height="26" Margin="479,86,0,0" VerticalAlignment="Top" Width="55"/>
+            <Label x:Name="lblDone" Content="Done" HorizontalAlignment="Left" Height="26" Margin="3,86,0,0" VerticalAlignment="Top" Width="52" Grid.Column="1"/>
+            <Popup Name="myPopup" IsOpen="{Binding IsChecked, ElementName=menuPoistaKayttaja}" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Border BorderThickness="1">
+                    <TextBlock Name="myPopupText" Background="White" Foreground="Blue" Padding="60">
+                    Oletko aivan varma, että haluat poistaa käyttäjän?
+                    </TextBlock>
+                </Border>
+            </Popup>
+        </Grid>
+    </DockPanel>
 </Window>

@@ -31,7 +31,8 @@ namespace Kanban
         private SolidColorBrush error = new SolidColorBrush(Colors.Red);
         private SolidColorBrush normal = new SolidColorBrush(Colors.Black);
 
-        List<CreateNewUser> users = new List<CreateNewUser>();
+        public static List<CreateNewUser> users = new List<CreateNewUser>();
+        public static CreateNewUser activeUser = null;
         public Kirjautumissivu()
         {
             InitializeComponent();
@@ -81,6 +82,7 @@ namespace Kanban
                 if (user.Username == nimi && user.Password == pass)
                 {
                     correct = true;
+                    activeUser = user;
                     break;
                 }
             }
