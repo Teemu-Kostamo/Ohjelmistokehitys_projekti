@@ -38,16 +38,16 @@ namespace Kanban
             InitializeComponent();
             Debug.WriteLine("TESTITESTITESTI FOLDERPATH: "+App.Users_databasePath);
 
-            ReadDataBase();
+            ReadUserDataBase();
         }
         //Tietokannan haku funktio
-        void ReadDataBase()
+        void ReadUserDataBase()
         {
             using (SQLiteConnection conn = new SQLiteConnection(App.Users_databasePath))
             {
                 conn.CreateTable<CreateNewUser>();
                 users = (conn.Table<CreateNewUser>().ToList()).OrderBy(u => u.Id).ToList();
-                Debug.WriteLine("DATABASE");
+                Debug.WriteLine("USER-DATABASE");
                 if (users == null)
                 {
                     Debug.WriteLine("Tyhjä");
@@ -75,7 +75,7 @@ namespace Kanban
             string pass = signerpass.Password;
             bool correct = false;
 
-            ReadDataBase();
+            ReadUserDataBase();
 
             foreach (CreateNewUser user in users)
             {

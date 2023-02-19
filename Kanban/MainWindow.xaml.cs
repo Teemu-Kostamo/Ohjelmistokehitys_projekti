@@ -1,7 +1,9 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +25,9 @@ namespace Kanban
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static List<Tehtava> tasks = new List<Tehtava>();
+        CreateNewUser ViewedUser;
+        string test;
         public MainWindow()
         {
             InitializeComponent();
@@ -33,6 +38,7 @@ namespace Kanban
             }
             //Populoidaan näkyvä nimi aktiiviseksi käyttäjäksi
             kayttajat.Text= Kirjautumissivu.activeUser.Name.ToString();
+            menuKirjautunutKayttaja.Text = "Kirjautuneena: "+Kirjautumissivu.activeUser.Name.ToString();
         }
         
         private void btnLuoUusiTaski_Click(object sender, RoutedEventArgs e)
@@ -57,5 +63,33 @@ namespace Kanban
             //Mahdollisuus poistaa aktiivinen käyttäjä
             //ilman tietokannan suoraa manipulaatiota
         }
-    }
+
+
+        private void kayttajat_DropDownClosed(object sender, EventArgs e)
+        {
+            ComboBox cmb = sender as ComboBox;
+            testinimi.Text = cmb.SelectedItem.ToString();
+
+
+        }
+        void ReadTaskDataBase()
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(App.Users_databasePath))
+            {
+                conn.CreateTable<Tehtava>();
+                tasks = (conn.Table<Tehtava>().ToList()).OrderBy(u => u.Id).ToList();
+                Debug.WriteLine("TASK-DATABASE");
+                if (tasks == null)
+                {
+                    Debug.WriteLine("Tyhjä");
+                }
+                else
+                {
+                    foreach (Tehtava task in tasks)
+                    {
+                        Debug.WriteLine(task.Id);
+                    }
+                }
+            }
+        }
 }
