@@ -26,8 +26,7 @@ namespace Kanban
     public partial class MainWindow : Window
     {
         public static List<Tehtava> tasks = new List<Tehtava>();
-        CreateNewUser ViewedUser;
-        string test;
+        int SelectedUserID;
         public MainWindow()
         {
             InitializeComponent();
@@ -37,41 +36,43 @@ namespace Kanban
                 kayttajat.Items.Add(user.Name);
             }
             //Populoidaan näkyvä nimi aktiiviseksi käyttäjäksi
-            kayttajat.Text= Kirjautumissivu.activeUser.Name.ToString();
-            menuKirjautunutKayttaja.Text = "Kirjautuneena: "+Kirjautumissivu.activeUser.Name.ToString();
+            kayttajat.Text = Kirjautumissivu.activeUser.Name.ToString();
         }
-        
+
+        //Painikkeiden toiminnallisuudet--------------------------------------
         private void btnLuoUusiTaski_Click(object sender, RoutedEventArgs e)
         {
             Tehtavanluonti newTask = new Tehtavanluonti();
             newTask.ShowDialog();
         }
+
+        //Menun toiminnallisuudet---------------------------------------------
         private void menubtnKirjauduUlos(object sender, RoutedEventArgs e)
         {
             Kirjautumissivu kirjautumissivu = new Kirjautumissivu();
             Close();
             kirjautumissivu.ShowDialog();
         }
-        private void menubtnLopeta(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-        private void menubtnPoistaKayttaja(object sender, RoutedEventArgs e) 
+        private void menubtnPoistaKayttaja(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine(null);
             //Käyttäjän poiston funktion placeholder,
             //Mahdollisuus poistaa aktiivinen käyttäjä
             //ilman tietokannan suoraa manipulaatiota
         }
+        private void menubtnLopeta(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
 
-
+        //Taustatoiminnallisuudet-------------------------------------------
         private void kayttajat_DropDownClosed(object sender, EventArgs e)
         {
             ComboBox cmb = sender as ComboBox;
             testinimi.Text = cmb.SelectedItem.ToString();
-
-
+            SelectedUserID = GetUserID(cmb.SelectedItem.ToString());
         }
+
         void ReadTaskDataBase()
         {
             using (SQLiteConnection conn = new SQLiteConnection(App.Users_databasePath))
@@ -92,4 +93,18 @@ namespace Kanban
                 }
             }
         }
+
+        private static int GetUserID(string name)
+        {
+            CreateNewUser FoundUser = null;
+            foreach (CreateNewUser user in Kirjautumissivu.users)
+            {
+                if (user.Name == name)
+                {
+                    FoundUser= user;
+                }
+            }
+            return FoundUser.Id;
+        }
+    }
 }
