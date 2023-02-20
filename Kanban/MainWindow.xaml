@@ -21,35 +21,42 @@
                 <ColumnDefinition Width="27*"/>
                 <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
-            <ListView x:Name="listToDo" Margin="10,117,490,10">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn/>
-                    </GridView>
-                </ListView.View>
-                <TextBlock x:Name="testinimi" TextWrapping="Wrap" Text=""/>
-            </ListView>
-            <ListView x:Name="listWIP" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="210,117,290,10">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <ListView x:Name="listTesting" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="419,117,81,10">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <ListView x:Name="listDone" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="618,117,10,10" Grid.ColumnSpan="2">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="10,101,0,0" Name="toDoList" VerticalAlignment="Top" Width="141" Grid.Row="1">
+
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="ID" Width="40" Binding="{Binding Id}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Name" Width="100" Binding="{Binding Name}"></DataGridTextColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="212,101,0,0" Name="wipList" VerticalAlignment="Top" Width="141" Grid.Row="1">
+
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="ID" Width="40" Binding="{Binding Id}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Name" Width="100" Binding="{Binding Name}"></DataGridTextColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="419,101,0,0" Name="testingList" VerticalAlignment="Top" Width="141" Grid.Row="1">
+
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="ID" Width="40" Binding="{Binding Id}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Name" Width="100" Binding="{Binding Name}"></DataGridTextColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="618,101,0,0" Name="doneList" VerticalAlignment="Top" Width="141" Grid.ColumnSpan="2" Grid.Row="1">
+
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="ID" Width="40" Binding="{Binding Id}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Name" Width="100" Binding="{Binding Name}"></DataGridTextColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
             <ComboBox x:Name="kayttajat" HorizontalAlignment="Left" Margin="98,44,0,0" VerticalAlignment="Top" Width="221" SelectionChanged="kayttajat_DropDownClosed"/>
             <Label x:Name="lblUser" Content="Käyttäjä&#xD;&#xA;" Height="27" Margin="27,41,582,0" VerticalAlignment="Top" AutomationProperties.Name="Käyttäjä"/>
             <Button x:Name="btnLuoUusiTaski" Content="Luo uusi tehtävä" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="22" Margin="618,44,0,0" VerticalAlignment="Top" Width="144" Click="btnLuoUusiTaski_Click"/>
@@ -64,6 +71,8 @@
                     </TextBlock>
                 </Border>
             </Popup>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="127,71,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="313,71,0,0" VerticalAlignment="Top" Click="Button_Click2"/>
         </Grid>
     </DockPanel>
 </Window>

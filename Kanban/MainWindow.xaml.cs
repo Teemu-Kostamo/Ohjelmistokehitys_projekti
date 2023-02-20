@@ -1,6 +1,8 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -16,6 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using User_Class;
+using System.Collections;
 
 
 namespace Kanban
@@ -69,13 +72,13 @@ namespace Kanban
         private void kayttajat_DropDownClosed(object sender, EventArgs e)
         {
             ComboBox cmb = sender as ComboBox;
-            testinimi.Text = cmb.SelectedItem.ToString();
+            //testinimi.Text = cmb.SelectedItem.ToString();
             SelectedUserID = GetUserID(cmb.SelectedItem.ToString());
         }
 
         void ReadTaskDataBase()
         {
-            using (SQLiteConnection conn = new SQLiteConnection(App.Users_databasePath))
+            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.Users_databasePath))
             {
                 conn.CreateTable<Tehtava>();
                 tasks = (conn.Table<Tehtava>().ToList()).OrderBy(u => u.Id).ToList();
@@ -94,6 +97,55 @@ namespace Kanban
             }
         }
 
+        public void getToDo()
+        {
+
+            using (System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection("Data Source=C:\\Users\\warde\\source\\repos\\Ohjelmistokehitys_projekti4\\Kanban\\Tasks.db;"))
+            {
+                conn.Open();
+
+                System.Data.SQLite.SQLiteCommand command = new System.Data.SQLite.SQLiteCommand("Select * from Tehtava WHERE status like 'To-Do' AND UserID =" + SelectedUserID + "", conn);
+                command.ExecuteNonQuery();
+
+                SQLiteDataAdapter adap = new SQLiteDataAdapter(command);
+
+                DataTable dt = new DataTable("Tasks");
+                adap.Fill(dt);
+
+                toDoList.ItemsSource = dt.DefaultView;
+                adap.Update(dt);
+
+                conn.Close();
+
+            }
+        }
+        public void getWIP()
+        {
+
+            using (System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection("Data Source=C:\\jostain\\syystä\\koko\\polku\\Ohjelmistokehitys_projekti3\\Kanban\\Kanban\\Tasks.db;"))
+            {
+                conn.Open();
+
+                System.Data.SQLite.SQLiteCommand command = new System.Data.SQLite.SQLiteCommand("Select * from Tehtava WHERE status like 'WIP'", conn);
+                command.ExecuteNonQuery();
+
+                SQLiteDataAdapter adap = new SQLiteDataAdapter(command);
+
+                DataTable dt = new DataTable("Tasks");
+                adap.Fill(dt);
+
+                wipList.ItemsSource = dt.DefaultView;
+                adap.Update(dt);
+
+                conn.Close();
+
+            }
+        }
+
+
+
+
+
         private static int GetUserID(string name)
         {
             CreateNewUser FoundUser = null;
@@ -105,6 +157,16 @@ namespace Kanban
                 }
             }
             return FoundUser.Id;
+        }
+
+        //vaan tilapäisiä nappuloita joilla päivitetään
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            getToDo();
+        }
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+            getWIP();
         }
     }
 }
