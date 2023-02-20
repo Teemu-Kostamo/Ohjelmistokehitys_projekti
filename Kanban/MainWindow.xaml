@@ -21,7 +21,7 @@
                 <ColumnDefinition Width="27*"/>
                 <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="10,101,0,0" Name="toDoList" VerticalAlignment="Top" Width="141" Grid.Row="1">
+            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="10,117,0,0" Name="toDoList" VerticalAlignment="Top" Width="141">
 
                 <DataGrid.Columns>
 
@@ -30,7 +30,7 @@
                 </DataGrid.Columns>
 
             </DataGrid>
-            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="212,101,0,0" Name="wipList" VerticalAlignment="Top" Width="141" Grid.Row="1">
+            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="212,117,0,0" Name="wipList" VerticalAlignment="Top" Width="141">
 
                 <DataGrid.Columns>
 
@@ -39,7 +39,7 @@
                 </DataGrid.Columns>
 
             </DataGrid>
-            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="419,101,0,0" Name="testingList" VerticalAlignment="Top" Width="141" Grid.Row="1">
+            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="417,117,0,0" Name="testingList" VerticalAlignment="Top" Width="141">
 
                 <DataGrid.Columns>
 
@@ -48,7 +48,7 @@
                 </DataGrid.Columns>
 
             </DataGrid>
-            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="618,101,0,0" Name="doneList" VerticalAlignment="Top" Width="141" Grid.ColumnSpan="2" Grid.Row="1">
+            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="618,117,0,0" Name="doneList" VerticalAlignment="Top" Width="141" Grid.ColumnSpan="2">
 
                 <DataGrid.Columns>
 
@@ -60,10 +60,10 @@
             <ComboBox x:Name="kayttajat" HorizontalAlignment="Left" Margin="98,44,0,0" VerticalAlignment="Top" Width="221" SelectionChanged="kayttajat_DropDownClosed"/>
             <Label x:Name="lblUser" Content="Käyttäjä&#xD;&#xA;" Height="27" Margin="27,41,582,0" VerticalAlignment="Top" AutomationProperties.Name="Käyttäjä"/>
             <Button x:Name="btnLuoUusiTaski" Content="Luo uusi tehtävä" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="22" Margin="618,44,0,0" VerticalAlignment="Top" Width="144" Click="btnLuoUusiTaski_Click"/>
-            <Label x:Name="lblToDo" Content="To Do" HorizontalAlignment="Left" Height="26" Margin="73,86,0,0" VerticalAlignment="Top" Width="49"/>
-            <Label x:Name="lblWIP" Content="Work in Progress" HorizontalAlignment="Left" Height="26" Margin="242,86,0,0" VerticalAlignment="Top" Width="111"/>
-            <Label x:Name="lblTesting" Content="Testing" HorizontalAlignment="Left" Height="26" Margin="479,86,0,0" VerticalAlignment="Top" Width="55"/>
-            <Label x:Name="lblDone" Content="Done" HorizontalAlignment="Left" Height="26" Margin="3,86,0,0" VerticalAlignment="Top" Width="52" Grid.Column="1"/>
+            <Label x:Name="lblToDo" Content="To Do" HorizontalAlignment="Left" Height="26" Margin="56,86,0,0" VerticalAlignment="Top" Width="49"/>
+            <Label x:Name="lblWIP" Content="Work in Progress" HorizontalAlignment="Left" Height="26" Margin="227,86,0,0" VerticalAlignment="Top" Width="111"/>
+            <Label x:Name="lblTesting" Content="Testing" HorizontalAlignment="Left" Height="26" Margin="460,86,0,0" VerticalAlignment="Top" Width="55"/>
+            <Label x:Name="lblDone" Content="Done" HorizontalAlignment="Left" Height="26" Margin="0,86,0,0" VerticalAlignment="Top" Width="52" Grid.Column="1"/>
             <Popup Name="myPopup" IsOpen="{Binding IsChecked, ElementName=menuPoistaKayttaja}" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Border BorderThickness="1">
                     <TextBlock Name="myPopupText" Background="White" Foreground="Blue" Padding="60">
