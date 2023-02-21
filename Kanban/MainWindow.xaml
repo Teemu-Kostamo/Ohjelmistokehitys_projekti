@@ -21,7 +21,7 @@
                 <ColumnDefinition Width="27*"/>
                 <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="10,117,0,0" Name="toDoList" VerticalAlignment="Top" Width="141">
+            <DataGrid AutoGenerateColumns="False" Height="289" HorizontalAlignment="Left" Margin="10,117,0,0" Name="toDoList" VerticalAlignment="Top" Width="141" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False">
 
                 <DataGrid.Columns>
 
@@ -71,8 +71,6 @@
                     </TextBlock>
                 </Border>
             </Popup>
-            <Button Content="Button" HorizontalAlignment="Left" Margin="127,71,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-            <Button Content="Button" HorizontalAlignment="Left" Margin="313,71,0,0" VerticalAlignment="Top" Click="Button_Click2"/>
         </Grid>
     </DockPanel>
 </Window>

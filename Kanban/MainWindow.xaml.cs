@@ -30,6 +30,13 @@ namespace Kanban
     {
         public static List<Tehtava> tasks = new List<Tehtava>();
         int SelectedUserID;
+
+
+        //SQL komennot
+        string GetToDo = "Select * from Tehtava WHERE status like 'To-Do' AND UserId =1";
+        string GetWIP = "Select * from Tehtava WHERE status like 'WIP' AND UserId =1";
+        string GetTesting = "Select * from Tehtava WHERE status like 'Testing' AND UserId=1";
+        string GetDone = "Select * from Tehtava WHERE status like 'Done' AND UserId =1";
         public MainWindow()
         {
             InitializeComponent();
@@ -74,6 +81,10 @@ namespace Kanban
             ComboBox cmb = sender as ComboBox;
             //testinimi.Text = cmb.SelectedItem.ToString();
             SelectedUserID = GetUserID(cmb.SelectedItem.ToString());
+            SQL_Command(GetToDo + SelectedUserID);
+            SQL_Command(GetWIP + SelectedUserID);
+            SQL_Command(GetTesting + SelectedUserID);
+            SQL_Command(GetDone+ SelectedUserID);
         }
 
         void ReadTaskDataBase()
@@ -96,56 +107,42 @@ namespace Kanban
                 }
             }
         }
-
-        public void getToDo()
+        public void SQL_Command(string comm)
         {
 
-            using (System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection("Data Source=C:\\Users\\warde\\source\\repos\\Ohjelmistokehitys_projekti4\\Kanban\\Tasks.db;"))
+            using (System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection("Data Source=Tasks.db"))
             {
                 conn.Open();
 
-                System.Data.SQLite.SQLiteCommand command = new System.Data.SQLite.SQLiteCommand("Select * from Tehtava WHERE status like 'To-Do' AND UserID =" + SelectedUserID + "", conn);
+                System.Data.SQLite.SQLiteCommand command = new System.Data.SQLite.SQLiteCommand(comm, conn);
                 command.ExecuteNonQuery();
 
                 SQLiteDataAdapter adap = new SQLiteDataAdapter(command);
 
                 DataTable dt = new DataTable("Tasks");
                 adap.Fill(dt);
-
+                if (comm.Contains("To-Do"))
+                {
                 toDoList.ItemsSource = dt.DefaultView;
+                }
+                else if (comm.Contains("WIP"))
+                {
+                    wipList.ItemsSource = dt.DefaultView;
+                }
+                else if (comm.Contains("Testing"))
+                {
+                    testingList.ItemsSource = dt.DefaultView;
+                }
+                else if (comm.Contains("Done"))
+                {
+                    doneList.ItemsSource = dt.DefaultView;
+                }
                 adap.Update(dt);
 
                 conn.Close();
 
             }
         }
-        public void getWIP()
-        {
-
-            using (System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection("Data Source=C:\\jostain\\syystä\\koko\\polku\\Ohjelmistokehitys_projekti3\\Kanban\\Kanban\\Tasks.db;"))
-            {
-                conn.Open();
-
-                System.Data.SQLite.SQLiteCommand command = new System.Data.SQLite.SQLiteCommand("Select * from Tehtava WHERE status like 'WIP'", conn);
-                command.ExecuteNonQuery();
-
-                SQLiteDataAdapter adap = new SQLiteDataAdapter(command);
-
-                DataTable dt = new DataTable("Tasks");
-                adap.Fill(dt);
-
-                wipList.ItemsSource = dt.DefaultView;
-                adap.Update(dt);
-
-                conn.Close();
-
-            }
-        }
-
-
-
-
-
         private static int GetUserID(string name)
         {
             CreateNewUser FoundUser = null;
@@ -157,16 +154,6 @@ namespace Kanban
                 }
             }
             return FoundUser.Id;
-        }
-
-        //vaan tilapäisiä nappuloita joilla päivitetään
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            getToDo();
-        }
-        private void Button_Click2(object sender, RoutedEventArgs e)
-        {
-            getWIP();
         }
     }
 }

@@ -106,5 +106,14 @@ namespace Kanban
             Kayttajanluonti kayttajanluonti = new Kayttajanluonti();
             kayttajanluonti.Show();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ReadUserDataBase();
+            activeUser = users[0];
+            MainWindow paaohjelma = new MainWindow();
+            paaohjelma.Show();
+            Close();
+        }
     }
 }
