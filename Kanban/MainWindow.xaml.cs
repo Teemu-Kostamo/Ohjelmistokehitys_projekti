@@ -74,12 +74,22 @@ namespace Kanban
             //automaatio, että käyttäjän tekemättömät
             //taskit siirtyvät backlogiin kaikkien 
             //käyttöön
+            string messageBoxText = "Haluatko varmasti poistaa käyttäjän?";
+            string caption = "Käyttäjän poisto";
+            MessageBoxButton button = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            MessageBoxResult result;
 
+            result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+            if (result == MessageBoxResult.Yes)
+            {
+                MessageBox.Show("Käyttäjä poistettu tietokannasta");
+                SQL_Command(DeleteUser + Kirjautumissivu.activeUser.Id, Users_db);
+                Kirjautumissivu kirsiv = new Kirjautumissivu();
+                kirsiv.Show();
+                Close();
+            }
             //Lisäksi tarvitsee tehdä varmistus popup
-            SQL_Command(DeleteUser + Kirjautumissivu.activeUser.Id, Users_db);
-            Kirjautumissivu kirsiv = new Kirjautumissivu();
-            kirsiv.Show();
-            Close();
         }
         private void menubtnLopeta(object sender, RoutedEventArgs e)
         {
