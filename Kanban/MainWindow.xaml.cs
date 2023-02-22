@@ -33,10 +33,10 @@ namespace Kanban
 
 
         //SQL komennot
-        string GetToDo = "Select * from Tehtava WHERE status like 'To-Do' AND UserId =1";
-        string GetWIP = "Select * from Tehtava WHERE status like 'WIP' AND UserId =1";
-        string GetTesting = "Select * from Tehtava WHERE status like 'Testing' AND UserId=1";
-        string GetDone = "Select * from Tehtava WHERE status like 'Done' AND UserId =1";
+        string GetToDo = "Select * from Tehtava WHERE status like 'To-Do' AND UserId =";
+        string GetWIP = "Select * from Tehtava WHERE status like 'WIP' AND UserId =";
+        string GetTesting = "Select * from Tehtava WHERE status like 'Testing' AND UserId=";
+        string GetDone = "Select * from Tehtava WHERE status like 'Done' AND UserId =";
         public MainWindow()
         {
             InitializeComponent();

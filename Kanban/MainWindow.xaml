@@ -30,7 +30,7 @@
                 </DataGrid.Columns>
 
             </DataGrid>
-            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="212,117,0,0" Name="wipList" VerticalAlignment="Top" Width="141">
+            <DataGrid AutoGenerateColumns="False" Height="289" HorizontalAlignment="Left" Margin="212,117,0,0" Name="wipList" VerticalAlignment="Top" Width="141" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False">
 
                 <DataGrid.Columns>
 
@@ -39,7 +39,7 @@
                 </DataGrid.Columns>
 
             </DataGrid>
-            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="417,117,0,0" Name="testingList" VerticalAlignment="Top" Width="141">
+            <DataGrid AutoGenerateColumns="False" Height="289" HorizontalAlignment="Left" Margin="417,117,0,0" Name="testingList" VerticalAlignment="Top" Width="141" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False">
 
                 <DataGrid.Columns>
 
@@ -48,7 +48,7 @@
                 </DataGrid.Columns>
 
             </DataGrid>
-            <DataGrid AutoGenerateColumns="True" Height="289" HorizontalAlignment="Left" Margin="618,117,0,0" Name="doneList" VerticalAlignment="Top" Width="141" Grid.ColumnSpan="2">
+            <DataGrid AutoGenerateColumns="False" Height="289" HorizontalAlignment="Left" Margin="618,117,0,0" Name="doneList" VerticalAlignment="Top" Width="141" Grid.ColumnSpan="2" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False">
 
                 <DataGrid.Columns>
 

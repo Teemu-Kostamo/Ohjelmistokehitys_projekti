@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rz3qxDdjPlI6n7yWAJQrhmEFFP8MvN5SMXVCNGzp86sLY0Zu/zPFgJQpcwqonUTpfxoruZCiSgRb5unh7tkJVQ==",
+  "dgSpecHash": "vahK6s96eiMg2lKYIp/dYN/bt4UMDXLE9eTdcmxzM0qKVymq6SZGYVuK61nujaA7Dt3768TknhOA88n14EfcQw==",
   "success": true,
-  "projectFilePath": "F:\\Ohjelmistokehitys_projekti\\Kanban\\Kanban.csproj",
+  "projectFilePath": "C:\\Users\\kosti\\Desktop\\Ohjelmistokehitys_projekti\\Kanban\\Kanban.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kosti\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\kosti\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
