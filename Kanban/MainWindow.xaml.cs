@@ -28,15 +28,19 @@ namespace Kanban
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static List<Tehtava> tasks = new List<Tehtava>();
         int SelectedUserID;
 
 
-        //SQL komennot
+        //SQL tietokantaosoitteet ja komennot
+
+        string Tasks_db = "Data Source=Tasks.db";
+        string Users_db = "Data Source=Users.db";
+
         string GetToDo = "Select * from Tehtava WHERE status like 'To-Do' AND UserId =";
         string GetWIP = "Select * from Tehtava WHERE status like 'WIP' AND UserId =";
         string GetTesting = "Select * from Tehtava WHERE status like 'Testing' AND UserId=";
         string GetDone = "Select * from Tehtava WHERE status like 'Done' AND UserId =";
+        string DeleteUser = "Delete from CreateNewUser WHERE Id=";
         public MainWindow()
         {
             InitializeComponent();
@@ -65,10 +69,17 @@ namespace Kanban
         }
         private void menubtnPoistaKayttaja(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine(null);
-            //Käyttäjän poiston funktion placeholder,
-            //Mahdollisuus poistaa aktiivinen käyttäjä
-            //ilman tietokannan suoraa manipulaatiota
+            //Käyttäjän poiston funktio toimii
+            //Täytyy vielä rakentaa poiston myötä
+            //automaatio, että käyttäjän tekemättömät
+            //taskit siirtyvät backlogiin kaikkien 
+            //käyttöön
+
+            //Lisäksi tarvitsee tehdä varmistus popup
+            SQL_Command(DeleteUser + Kirjautumissivu.activeUser.Id, Users_db);
+            Kirjautumissivu kirsiv = new Kirjautumissivu();
+            kirsiv.Show();
+            Close();
         }
         private void menubtnLopeta(object sender, RoutedEventArgs e)
         {
@@ -79,38 +90,16 @@ namespace Kanban
         private void kayttajat_DropDownClosed(object sender, EventArgs e)
         {
             ComboBox cmb = sender as ComboBox;
-            //testinimi.Text = cmb.SelectedItem.ToString();
             SelectedUserID = GetUserID(cmb.SelectedItem.ToString());
-            SQL_Command(GetToDo + SelectedUserID);
-            SQL_Command(GetWIP + SelectedUserID);
-            SQL_Command(GetTesting + SelectedUserID);
-            SQL_Command(GetDone+ SelectedUserID);
+            SQL_Command(GetToDo + SelectedUserID,Tasks_db);
+            SQL_Command(GetWIP + SelectedUserID,Tasks_db);
+            SQL_Command(GetTesting + SelectedUserID, Tasks_db);
+            SQL_Command(GetDone+ SelectedUserID, Tasks_db);
         }
-
-        void ReadTaskDataBase()
-        {
-            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.Users_databasePath))
-            {
-                conn.CreateTable<Tehtava>();
-                tasks = (conn.Table<Tehtava>().ToList()).OrderBy(u => u.Id).ToList();
-                Debug.WriteLine("TASK-DATABASE");
-                if (tasks == null)
-                {
-                    Debug.WriteLine("Tyhjä");
-                }
-                else
-                {
-                    foreach (Tehtava task in tasks)
-                    {
-                        Debug.WriteLine(task.Id);
-                    }
-                }
-            }
-        }
-        public void SQL_Command(string comm)
+        public void SQL_Command(string comm, string db)
         {
 
-            using (System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection("Data Source=Tasks.db"))
+            using (System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(db))
             {
                 conn.Open();
 

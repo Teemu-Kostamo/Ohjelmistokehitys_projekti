@@ -12,7 +12,7 @@
                 <MenuItem Header="_Luo uusi tehtävä" HorizontalAlignment="Left" />
                 <MenuItem Header="_Kirjaudu ulos" Click="menubtnKirjauduUlos"/>
                 <Separator />
-                <MenuItem x:Name="menuPoistaKayttaja" Header="_Poista käyttäjä" IsCheckable="True" />
+                <MenuItem x:Name="menuPoistaKayttaja" Header="_Poista käyttäjä" Click="menubtnPoistaKayttaja" />
                 <MenuItem Header="_Lopeta" Click="menubtnLopeta" />
             </MenuItem>
         </Menu>
@@ -21,16 +21,15 @@
                 <ColumnDefinition Width="27*"/>
                 <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid AutoGenerateColumns="False" Height="289" HorizontalAlignment="Left" Margin="10,117,0,0" Name="toDoList" VerticalAlignment="Top" Width="141" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False">
+            <DataGrid AutoGenerateColumns="False" Height="289" HorizontalAlignment="Left" Margin="10,117,0,0" Name="toDoList" VerticalAlignment="Top" Width="141" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" IsSynchronizedWithCurrentItem="True" AreRowDetailsFrozen="True">
 
                 <DataGrid.Columns>
-
-                    <DataGridTextColumn Header="ID" Width="40" Binding="{Binding Id}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Name" Width="100" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}"></DataGridTextColumn>
                 </DataGrid.Columns>
 
             </DataGrid>
-            <DataGrid AutoGenerateColumns="False" Height="289" HorizontalAlignment="Left" Margin="212,117,0,0" Name="wipList" VerticalAlignment="Top" Width="141" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False">
+            <DataGrid AutoGenerateColumns="False" Height="289" HorizontalAlignment="Left" Margin="212,117,0,0" Name="wipList" VerticalAlignment="Top" Width="141" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
                 <DataGrid.Columns>
 
