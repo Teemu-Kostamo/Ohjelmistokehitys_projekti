@@ -356,3 +356,14 @@ C:\Users\kosti\Desktop\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-window
 C:\Users\kosti\Desktop\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\ref\Kanban.dll
 F:\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Tehtävän_katselu.g.cs
 F:\Ohjelmistokehitys_projekti\Kanban\obj\Debug\net6.0-windows\Tehtävän_katselu.baml
+C:\Users\warde\Source\Repos\Ohjelmistokehitys_projekti7\Kanban\obj\Debug\net6.0-windows\Kanban.csproj.AssemblyReference.cache
+C:\Users\warde\Source\Repos\Ohjelmistokehitys_projekti7\Kanban\obj\Debug\net6.0-windows\Kirjautumissivu.g.cs
+C:\Users\warde\Source\Repos\Ohjelmistokehitys_projekti7\Kanban\obj\Debug\net6.0-windows\Käyttäjänluonti.g.cs
+C:\Users\warde\Source\Repos\Ohjelmistokehitys_projekti7\Kanban\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\warde\Source\Repos\Ohjelmistokehitys_projekti7\Kanban\obj\Debug\net6.0-windows\Tehtavanluonti.g.cs
+C:\Users\warde\Source\Repos\Ohjelmistokehitys_projekti7\Kanban\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\warde\Source\Repos\Ohjelmistokehitys_projekti7\Kanban\obj\Debug\net6.0-windows\Kanban_MarkupCompile.cache
+C:\Users\warde\Source\Repos\Ohjelmistokehitys_projekti7\Kanban\obj\Debug\net6.0-windows\Kanban_MarkupCompile.lref
+C:\Users\warde\Source\Repos\Ohjelmistokehitys_projekti7\Kanban\obj\Debug\net6.0-windows\Kanban.dll
+C:\Users\warde\Source\Repos\Ohjelmistokehitys_projekti7\Kanban\obj\Debug\net6.0-windows\refint\Kanban.dll
+C:\Users\warde\Source\Repos\Ohjelmistokehitys_projekti7\Kanban\obj\Debug\net6.0-windows\Kanban.pdb
