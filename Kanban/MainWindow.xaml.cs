@@ -29,6 +29,7 @@ namespace Kanban
     public partial class MainWindow : Window
     {
         int SelectedUserID;
+        public static string sValue = "";
 
 
         //SQL tietokantaosoitteet ja komennot
@@ -154,5 +155,22 @@ namespace Kanban
             }
             return FoundUser.Id;
         }
+
+        private void toDoList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            // Ensure row was clicked and not empty space
+            var row = ItemsControl.ContainerFromElement((DataGrid)sender,
+                                                e.OriginalSource as DependencyObject) as DataGridRow;
+
+            if (row == null) return;
+            DataRowView oDataRowView = toDoList.SelectedItem as DataRowView;
+            
+            if (oDataRowView != null)
+            {
+                sValue = oDataRowView.Row["Id"].ToString();
+            }
+            Tehtävän_katselu KatseluSivu = new Tehtävän_katselu();
+            KatseluSivu.ShowDialog();
+        }   
     }
 }

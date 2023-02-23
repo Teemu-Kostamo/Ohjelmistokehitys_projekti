@@ -21,7 +21,7 @@
                 <ColumnDefinition Width="27*"/>
                 <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid AutoGenerateColumns="False" Height="289" HorizontalAlignment="Left" Margin="10,117,0,0" Name="toDoList" VerticalAlignment="Top" Width="141"  HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" IsSynchronizedWithCurrentItem="True" AreRowDetailsFrozen="True">
+            <DataGrid AutoGenerateColumns="False" Height="289" HorizontalAlignment="Left" Margin="10,117,0,0" Name="toDoList" VerticalAlignment="Top" Width="141"  HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" IsSynchronizedWithCurrentItem="True" AreRowDetailsFrozen="True" ItemsSource="{Binding}" MouseDoubleClick="toDoList_MouseDoubleClick">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}">

@@ -104,7 +104,7 @@ namespace Kanban
         {
             //Siirrytään käyttäjänluonti ikkunaan sulkematta kirjautumissivua
             Kayttajanluonti kayttajanluonti = new Kayttajanluonti();
-            kayttajanluonti.Show();
+            kayttajanluonti.ShowDialog();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

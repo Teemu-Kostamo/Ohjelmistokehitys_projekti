@@ -11,6 +11,9 @@
     <Compile Update="Tehtavanluonti.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Tehtävän_katselu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Kirjautumissivu.xaml">
@@ -20,6 +23,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Tehtavanluonti.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Tehtävän_katselu.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
