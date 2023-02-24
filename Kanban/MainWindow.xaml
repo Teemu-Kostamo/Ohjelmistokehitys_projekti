@@ -60,7 +60,7 @@
                   AutoGenerateColumns="False" IsReadOnly="True"
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   CanUserResizeRows="False" CanUserReorderColumns="False"
-                  CanUserResizeColumns="False" Grid.ColumnSpan="4">
+                  CanUserResizeColumns="False" Grid.ColumnSpan="4" MouseDoubleClick="toDoList_MouseDoubleClick">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Tag" Width="auto" Binding="{Binding Tag}"/>
