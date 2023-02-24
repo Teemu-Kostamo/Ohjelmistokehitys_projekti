@@ -70,7 +70,6 @@ namespace Kanban
         }
         private void menubtnPoistaKayttaja(object sender, RoutedEventArgs e)
         {
-            //Käyttäjän poiston funktio toimii
             //Täytyy vielä rakentaa poiston myötä
             //automaatio, että käyttäjän tekemättömät
             //taskit siirtyvät backlogiin kaikkien 
@@ -90,7 +89,6 @@ namespace Kanban
                 kirsiv.Show();
                 Close();
             }
-            //Lisäksi tarvitsee tehdä varmistus popup
         }
         private void menubtnLopeta(object sender, RoutedEventArgs e)
         {
@@ -156,19 +154,18 @@ namespace Kanban
             return FoundUser.Id;
         }
 
-        private void toDoList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void List_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            // Ensure row was clicked and not empty space
-            var row = ItemsControl.ContainerFromElement((DataGrid)sender,
-                                                e.OriginalSource as DependencyObject) as DataGridRow;
-
+            var row = ItemsControl.ContainerFromElement((DataGrid)sender, e.OriginalSource as DependencyObject) as DataGridRow;
+            DataGrid dg = sender as DataGrid;
             if (row == null) return;
-            DataRowView oDataRowView = toDoList.SelectedItem as DataRowView;
+            DataRowView oDataRowView = dg.SelectedItem as DataRowView;
             
             if (oDataRowView != null)
             {
                 sValue = oDataRowView.Row["Id"].ToString();
             }
+            Debug.WriteLine(dg.Name);
             Tehtävän_katselu KatseluSivu = new Tehtävän_katselu();
             KatseluSivu.ShowDialog();
         }   
