@@ -1,0 +1,25 @@
+﻿<Window x:Class="Kanban.Tehtävän_katselu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kanban"
+        mc:Ignorable="d"
+        Title="Tehtävän_katselu" Height="450" Width="800">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="293,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="467" x:Name="TehtavaNimi"/>
+        <TextBox HorizontalAlignment="Left" Height="29" Margin="293,77,0,0" VerticalAlignment="Top" Width="467" x:Name="TehtavaTekija"/>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="296,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="464" x:Name="TehtavaTagi"/>
+        <TextBox HorizontalAlignment="Left" Height="104" Margin="53,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="707" x:Name="TehtavaKuvaus"/>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="178,358,0,0" VerticalAlignment="Top" Width="141" x:Name="TehtavaMääräaika"/>
+        <TextBlock HorizontalAlignment="Left" Height="26" Margin="53,36,0,0" TextWrapping="Wrap" Text="Tehtävän nimi" VerticalAlignment="Top" Width="223"/>
+        <TextBlock HorizontalAlignment="Left" Height="26" Margin="53,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223"><Run Language="fi-fi" Text="Tag"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="26" Margin="53,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223"><Run Language="fi-fi" Text="Tekijä"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="26" Margin="53,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"><Run Language="fi-fi" Text="Määräaika"/></TextBlock>
+        <Button Content="Muokkaa" HorizontalAlignment="Left" Height="35" Margin="393,358,0,0" VerticalAlignment="Top" Width="133" />
+        <Button Content="Palaa" HorizontalAlignment="Left" Height="35" Margin="587,358,0,0" VerticalAlignment="Top" Width="159" Click="btnPalaa_paaikkunaan"/>
+        <TextBlock HorizontalAlignment="Left" Height="26" Margin="53,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111"><Run Language="fi-fi" Text="Status"/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="31" Margin="296,164,0,0" Text="" VerticalAlignment="Top" Width="464" x:Name="TehtavaStatus"></TextBox>
+
+    </Grid>
+</Window>
