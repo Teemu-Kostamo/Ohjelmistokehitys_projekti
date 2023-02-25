@@ -169,8 +169,8 @@ namespace Kanban
             {
                 sValue = oDataRowView.Row["Id"].ToString();
             }
-            Tehtävän_katselu KatseluSivu = new Tehtävän_katselu();
-            KatseluSivu.ShowDialog();
+            //Tehtävän_katselu KatseluSivu = new Tehtävän_katselu();
+            //KatseluSivu.ShowDialog();
         }   
     }
 }
