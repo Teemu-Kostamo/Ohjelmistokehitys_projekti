@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using User_Class;
+using System.Collections;
 using SQLite;
 
 namespace Kanban
@@ -33,6 +34,8 @@ namespace Kanban
 
         public static List<CreateNewUser> users = new List<CreateNewUser>();
         public static CreateNewUser activeUser = null;
+
+        string SQL_User = "Select Username and Password from CreateNewUser";
         public Kirjautumissivu()
         {
             InitializeComponent();
@@ -41,23 +44,31 @@ namespace Kanban
             ReadUserDataBase();
         }
         //Tietokannan haku funktio
+
         void ReadUserDataBase()
         {
+            bool tyhja_tekija = false;
             using (SQLiteConnection conn = new SQLiteConnection(App.Users_databasePath))
             {
                 conn.CreateTable<CreateNewUser>();
                 users = (conn.Table<CreateNewUser>().ToList()).OrderBy(u => u.Id).ToList();
                 Debug.WriteLine("USER-DATABASE");
-                if (users == null)
+                foreach (CreateNewUser user in users)
                 {
-                    Debug.WriteLine("Tyhjä");
-                }
-                else
-                {
-                    foreach (CreateNewUser user in users)
+                    if (user.Name == "Tyhjä")
                     {
-                        Debug.WriteLine(user.Username);
+                        tyhja_tekija = true;
+                        break;
                     }
+                }
+                if (tyhja_tekija != true)
+                {
+                    CreateNewUser tyhja = new CreateNewUser()
+                    {
+                        Name = "Tyhjä",
+
+                    };
+                    conn.Insert(tyhja);
                 }
             }
         }

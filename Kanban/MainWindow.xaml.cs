@@ -19,7 +19,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using User_Class;
 using System.Collections;
-
+using System.Drawing;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 
 namespace Kanban
 {
@@ -42,6 +43,7 @@ namespace Kanban
         string GetTesting = "Select * from Tehtava WHERE status like 'Testing' AND UserId=";
         string GetDone = "Select * from Tehtava WHERE status like 'Done' AND UserId =";
         string DeleteUser = "Delete from CreateNewUser WHERE Id=";
+        string UpdateId = "UPDATE Tehtava Set UserId =" + GetUserID("Tyhjä").ToString() + " WHERE UserId="+Kirjautumissivu.activeUser.Id.ToString();
         public MainWindow()
         {
             InitializeComponent();
@@ -52,6 +54,10 @@ namespace Kanban
             }
             //Populoidaan näkyvä nimi aktiiviseksi käyttäjäksi
             kayttajat.Text = Kirjautumissivu.activeUser.Name.ToString();
+
+
+
+
         }
 
         //Painikkeiden toiminnallisuudet--------------------------------------
@@ -83,11 +89,13 @@ namespace Kanban
             result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
             if (result == MessageBoxResult.Yes)
             {
+                SQL_Command(UpdateId,Tasks_db);
                 MessageBox.Show("Käyttäjä poistettu tietokannasta");
                 SQL_Command(DeleteUser + Kirjautumissivu.activeUser.Id, Users_db);
                 Kirjautumissivu kirsiv = new Kirjautumissivu();
                 kirsiv.Show();
                 Close();
+
             }
         }
         private void menubtnLopeta(object sender, RoutedEventArgs e)
@@ -104,6 +112,8 @@ namespace Kanban
             SQL_Command(GetWIP + SelectedUserID,Tasks_db);
             SQL_Command(GetTesting + SelectedUserID, Tasks_db);
             SQL_Command(GetDone+ SelectedUserID, Tasks_db);
+
+            
         }
         public void SQL_Command(string comm, string db)
         {
@@ -118,10 +128,13 @@ namespace Kanban
                 SQLiteDataAdapter adap = new SQLiteDataAdapter(command);
 
                 DataTable dt = new DataTable("Tasks");
+                
                 adap.Fill(dt);
                 if (comm.Contains("To-Do"))
                 {
-                toDoList.ItemsSource = dt.DefaultView;
+                    toDoList.ItemsSource = dt.DefaultView;
+
+
                 }
                 else if (comm.Contains("WIP"))
                 {
@@ -138,7 +151,6 @@ namespace Kanban
                 adap.Update(dt);
 
                 conn.Close();
-
             }
         }
         private static int GetUserID(string name)
@@ -168,6 +180,6 @@ namespace Kanban
             Debug.WriteLine(dg.Name);
             Tehtävän_katselu KatseluSivu = new Tehtävän_katselu();
             KatseluSivu.ShowDialog();
-        }   
+        }
     }
 }

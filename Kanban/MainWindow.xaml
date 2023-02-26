@@ -57,14 +57,16 @@
             <!-- DataGrids -->
             <DataGrid x:Name="toDoList" Margin="10" Grid.Row="3" Grid.Column="0"
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                  AutoGenerateColumns="False" IsReadOnly="True"
+                  AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding}"
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   CanUserResizeRows="False" CanUserReorderColumns="False"
-                  CanUserResizeColumns="False" Grid.ColumnSpan="4" MouseDoubleClick="List_MouseDoubleClick">
+                  CanUserResizeColumns="False" Grid.ColumnSpan="4" MouseDoubleClick="List_MouseDoubleClick" >
+
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Tag" Width="auto" Binding="{Binding Tag}"/>
                     <DataGridTextColumn Header="Due Date" Width="auto" Binding="{Binding DueDate}"/>
+
                     <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}">
 
                         <DataGridTextColumn.ElementStyle>
