@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Kanban": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\warde\\source\\repos\\Ohjelmistokehitys_projekti9\\Kanban"
+    }
+  }
+}

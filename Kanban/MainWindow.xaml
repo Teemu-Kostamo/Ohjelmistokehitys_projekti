@@ -35,10 +35,10 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition Width="0.25*"/>
             </Grid.ColumnDefinitions>
 
             <!-- Käyttäjäpudotusvalikko -->
@@ -56,11 +56,11 @@
 
             <!-- DataGrids -->
             <DataGrid x:Name="toDoList" Margin="10" Grid.Row="3" Grid.Column="0"
-                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                  HorizontalAlignment="Stretch" 
                   AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding}"
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   CanUserResizeRows="False" CanUserReorderColumns="False"
-                  CanUserResizeColumns="False" Grid.ColumnSpan="4" MouseDoubleClick="List_MouseDoubleClick" >
+                  CanUserResizeColumns="False"  MouseDoubleClick="List_MouseDoubleClick" >
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"/>
@@ -80,11 +80,11 @@
             </DataGrid>
 
             <DataGrid x:Name="wipList" Margin="10" Grid.Row="3" Grid.Column="1"
-                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                  HorizontalAlignment="Stretch" 
                   AutoGenerateColumns="False" IsReadOnly="True"
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   CanUserResizeRows="False" CanUserReorderColumns="False"
-                  CanUserResizeColumns="False" Grid.ColumnSpan="2" MouseDoubleClick="List_MouseDoubleClick">
+                  CanUserResizeColumns="False"  MouseDoubleClick="List_MouseDoubleClick">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Tag" Width="auto" Binding="{Binding Tag}"/>
@@ -98,16 +98,16 @@
                     </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid x:Name="testingList" Margin="10,10,127,10" Grid.Row="3" Grid.Column="2"
+            <DataGrid x:Name="testingList" Margin="10" Grid.Row="3" Grid.Column="2"
                   AutoGenerateColumns="False" IsReadOnly="True"
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   CanUserResizeRows="False" CanUserReorderColumns="False"
-                  CanUserResizeColumns="False" MouseDoubleClick="List_MouseDoubleClick" Width="621">
+                  CanUserResizeColumns="False" MouseDoubleClick="List_MouseDoubleClick" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"/>
-                    <DataGridTextColumn Header="Tag" Width="80" Binding="{Binding Tag}"/>
-                    <DataGridTextColumn Header="Due Date" Width="80" Binding="{Binding DueDate}"/>
-                    <DataGridTextColumn Header="Name" Width="500" Binding="{Binding Name}">
+                    <DataGridTextColumn Header="Tag" Width="auto" Binding="{Binding Tag}"/>
+                    <DataGridTextColumn Header="Due Date" Width="auto" Binding="{Binding DueDate}"/>
+                    <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}">
                         <DataGridTextColumn.ElementStyle>
                             <Style>
                                 <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -117,11 +117,11 @@
                 </DataGrid.Columns>
             </DataGrid>
             <DataGrid x:Name="doneList" Margin="10" Grid.Row="3" Grid.Column="3"
-                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                  HorizontalAlignment="Stretch" 
                   AutoGenerateColumns="False" IsReadOnly="True"
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   CanUserResizeRows="False" CanUserReorderColumns="False"
-                  CanUserResizeColumns="False" Grid.ColumnSpan="2" MouseDoubleClick="List_MouseDoubleClick">
+                  CanUserResizeColumns="False"  MouseDoubleClick="List_MouseDoubleClick">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Tag" Width="auto" Binding="{Binding Tag}"/>
