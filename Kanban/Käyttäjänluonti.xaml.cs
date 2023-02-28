@@ -37,7 +37,7 @@ namespace Kanban
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            CreateNewUser u = new CreateNewUser()
+            User u = new User()
             {
                 Username = userName.Text,
                 Name = firstName.Text + " " + lastName.Text,
@@ -49,7 +49,7 @@ namespace Kanban
 
             using (SQLiteConnection connection = new SQLiteConnection(App.Users_databasePath))
             {
-                connection.CreateTable<CreateNewUser>();
+                connection.CreateTable<User>();
                 connection.Insert(u);
             }
         }

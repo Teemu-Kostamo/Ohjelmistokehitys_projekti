@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using User_Class;
 using System.Collections;
 using SQLite;
 
@@ -32,8 +31,8 @@ namespace Kanban
         private SolidColorBrush error = new SolidColorBrush(Colors.Red);
         private SolidColorBrush normal = new SolidColorBrush(Colors.Black);
 
-        public static List<CreateNewUser> users = new List<CreateNewUser>();
-        public static CreateNewUser activeUser = null;
+        public static List<User> users = new List<User>();
+        public static User activeUser = null;
 
         string SQL_User = "Select Username and Password from CreateNewUser";
         public Kirjautumissivu()
@@ -50,10 +49,10 @@ namespace Kanban
             bool tyhja_tekija = false;
             using (SQLiteConnection conn = new SQLiteConnection(App.Users_databasePath))
             {
-                conn.CreateTable<CreateNewUser>();
-                users = (conn.Table<CreateNewUser>().ToList()).OrderBy(u => u.Id).ToList();
+                conn.CreateTable<User>();
+                users = (conn.Table<User>().ToList()).OrderBy(u => u.Id).ToList();
                 Debug.WriteLine("USER-DATABASE");
-                foreach (CreateNewUser user in users)
+                foreach (User user in users)
                 {
                     if (user.Name == "Tyhjä")
                     {
@@ -63,7 +62,7 @@ namespace Kanban
                 }
                 if (tyhja_tekija != true)
                 {
-                    CreateNewUser tyhja = new CreateNewUser()
+                    User tyhja = new User()
                     {
                         Name = "Tyhjä",
 
@@ -88,7 +87,7 @@ namespace Kanban
 
             ReadUserDataBase();
 
-            foreach (CreateNewUser user in users)
+            foreach (User user in users)
             {
                 if (user.Username == nimi && user.Password == pass)
                 {

@@ -22,7 +22,7 @@ namespace Kanban
     /// </summary>
     public partial class Tehtävän_katselu : Window
     {
-        string testi = MainWindow.sValue;
+        string testi = MainWindow.rivin_id;
 
         string Tasks_db = "Data Source=Tasks.db";
         string Users_db = "Data Source=Users.db";
@@ -60,7 +60,7 @@ namespace Kanban
         }
         public string Get_username(int userid)
         {
-            foreach (CreateNewUser user in Kirjautumissivu.users)
+            foreach (User user in Kirjautumissivu.users)
             {
                 if (userid == user.Id)
                 {

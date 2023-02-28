@@ -17,20 +17,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using User_Class;
 using System.Collections;
 using System.Drawing;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using System.Globalization;
+using Microsoft.VisualBasic;
+using System.Xaml;
 
 namespace Kanban
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+
     public partial class MainWindow : Window
     {
+
         int SelectedUserID;
-        public static string sValue = "";
+        public static string rivin_id = "";
 
 
         //SQL tietokantaosoitteet ja komennot
@@ -48,12 +52,13 @@ namespace Kanban
         {
             InitializeComponent();
             //Populoidaan ikkunan pudotusvalikko käyttäjien nimillä
-            foreach (CreateNewUser user in Kirjautumissivu.users)
+            foreach (User user in Kirjautumissivu.users)
             {
                 kayttajat.Items.Add(user.Name);
             }
             //Populoidaan näkyvä nimi aktiiviseksi käyttäjäksi
             kayttajat.Text = Kirjautumissivu.activeUser.Name.ToString();
+            kirjautunut_kayttaja.Text = Kirjautumissivu.activeUser.Name.ToString();
 
 
 
@@ -76,10 +81,6 @@ namespace Kanban
         }
         private void menubtnPoistaKayttaja(object sender, RoutedEventArgs e)
         {
-            //Täytyy vielä rakentaa poiston myötä
-            //automaatio, että käyttäjän tekemättömät
-            //taskit siirtyvät backlogiin kaikkien 
-            //käyttöön
             string messageBoxText = "Haluatko varmasti poistaa käyttäjän?";
             string caption = "Käyttäjän poisto";
             MessageBoxButton button = MessageBoxButton.YesNo;
@@ -107,12 +108,11 @@ namespace Kanban
         private void kayttajat_DropDownClosed(object sender, EventArgs e)
         {
             ComboBox cmb = sender as ComboBox;
-            SelectedUserID = GetUserID(cmb.SelectedItem.ToString());
+            SelectedUserID = GetUserID(kayttajat.SelectedItem.ToString());
             SQL_Command(GetToDo + SelectedUserID,Tasks_db);
             SQL_Command(GetWIP + SelectedUserID,Tasks_db);
             SQL_Command(GetTesting + SelectedUserID, Tasks_db);
             SQL_Command(GetDone+ SelectedUserID, Tasks_db);
-
             
         }
         public void SQL_Command(string comm, string db)
@@ -134,7 +134,6 @@ namespace Kanban
                 {
                     toDoList.ItemsSource = dt.DefaultView;
 
-
                 }
                 else if (comm.Contains("WIP"))
                 {
@@ -155,8 +154,8 @@ namespace Kanban
         }
         private static int GetUserID(string name)
         {
-            CreateNewUser FoundUser = null;
-            foreach (CreateNewUser user in Kirjautumissivu.users)
+            User FoundUser = null;
+            foreach (User user in Kirjautumissivu.users)
             {
                 if (user.Name == name)
                 {
@@ -169,17 +168,19 @@ namespace Kanban
         private void List_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var row = ItemsControl.ContainerFromElement((DataGrid)sender, e.OriginalSource as DependencyObject) as DataGridRow;
-            DataGrid dg = sender as DataGrid;
+            DataGrid datagrid = sender as DataGrid;
             if (row == null) return;
-            DataRowView oDataRowView = dg.SelectedItem as DataRowView;
-            
-            if (oDataRowView != null)
+            DataRowView datarowview = datagrid.SelectedItem as DataRowView;
+
+
+            if (datarowview != null)
             {
-                sValue = oDataRowView.Row["Id"].ToString();
+                rivin_id = datarowview.Row["Id"].ToString();
             }
-            Debug.WriteLine(dg.Name);
             Tehtävän_katselu KatseluSivu = new Tehtävän_katselu();
             KatseluSivu.ShowDialog();
         }
+
     }
+
 }

@@ -1,40 +1,24 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace User_Class
+namespace Kanban
 {
-    class User
+    public class User
     {
-        List<string> position = new List<string>
-        {
-            "Työntekijä",
-            "Tiimivastaava"
-        };
+        [PrimaryKey, AutoIncrement]
 
+        public int Id { get; set; }
 
-        private string _Username;
-        private string _Password;
+        public string Username { get; set; }
 
-        public User(string username, string password)
-        {
-            _Username = username;
-            _Password = password;
-        }
+        public string Name { get; set; }
 
-        public string Get_Username()
-        {
-            return _Username;
-        }
-        public string Get_Password()
-        {
-            return _Password;
-        }
-        public void Set_Password(string password)
-        {
-            _Password = password;
-        }
+        public string Password { get; set; }
+
+        public string Role { get; set; }
     }
 }

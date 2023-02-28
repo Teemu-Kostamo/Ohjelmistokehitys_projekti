@@ -7,7 +7,9 @@
     mc:Ignorable="d"
     Width="{x:Static SystemParameters.PrimaryScreenWidth}"
     Height="{x:Static SystemParameters.PrimaryScreenHeight}"
-    Title="Kätevä Kanban-työkalu">
+    Title="Kätevä Kanban-työkalu"
+    WindowState="Maximized"
+    WindowStyle="SingleBorderWindow">
     <DockPanel>
         <!-- Menu -->
         <Menu DockPanel.Dock="Top">
@@ -19,13 +21,6 @@
                 <MenuItem Header="_Lopeta" Click="menubtnLopeta" />
             </MenuItem>
         </Menu>
-        <Popup Name="myPopup" IsOpen="{Binding IsChecked, ElementName=menuPoistaKayttaja}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="200,0,0,0">
-            <Border BorderThickness="1">
-                <TextBlock Name="myPopupText" Background="White" Foreground="Blue" Padding="60">
-                    Oletko aivan varma, että haluat poistaa käyttäjän?
-                </TextBlock>
-            </Border>
-        </Popup>
 
         <Grid>
             <Grid.RowDefinitions>
@@ -40,10 +35,14 @@
                 <ColumnDefinition Width="0.25*"/>
                 <ColumnDefinition Width="0.25*"/>
             </Grid.ColumnDefinitions>
+            
+            <!-- Kirjautunut käyttäjä -->
+            <Label x:Name="lblkirjautunut_kayttaja" Content="Kirjautunut käyttäjä:" Margin="10,55,0,0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox x:Name="kirjautunut_kayttaja" Margin="140,57,0,83" SelectionChanged="kayttajat_DropDownClosed" Grid.Row="0" Grid.Column="0" Focusable="False" Cursor="Arrow" IsReadOnly="True"/>
 
             <!-- Käyttäjäpudotusvalikko -->
-            <Label x:Name="lblKayttaja" Content="Käyttäjä:" Margin="10" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <ComboBox x:Name="kayttajat" Margin="70" SelectionChanged="kayttajat_DropDownClosed" Grid.Row="0" Grid.Column="0"/>
+            <Label x:Name="lblKayttaja" Content="Näytettävä käyttäjä:" Margin="10,102,0,0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <ComboBox x:Name="kayttajat" Margin="140,104,0,36" SelectionChanged="kayttajat_DropDownClosed" Grid.Row="0" Grid.Column="0"/>
 
             <!-- Luo uusi taski -->
             <Button x:Name="btnLuoUusiTaski" Content="Luo uusi tehtävä" Margin="10,0,10,0" Grid.Row="0" Grid.Column="3" Click="btnLuoUusiTaski_Click" VerticalAlignment="Center" Height="70"/>
@@ -61,7 +60,6 @@
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   CanUserResizeRows="False" CanUserReorderColumns="False"
                   CanUserResizeColumns="False"  MouseDoubleClick="List_MouseDoubleClick" >
-
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Tag" Width="auto" Binding="{Binding Tag}"/>
@@ -135,6 +133,7 @@
                     </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
+
         </Grid>
     </DockPanel>
 </Window>
