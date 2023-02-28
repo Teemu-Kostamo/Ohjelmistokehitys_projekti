@@ -9,7 +9,7 @@
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="26" Margin="293,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="467" Name="TehtavaNimi"/>
         <ComboBox HorizontalAlignment="Left" Height="29" Margin="293,77,0,0" VerticalAlignment="Top" Width="467" Name="TehtavaTekija"/>
-        <TextBox HorizontalAlignment="Left" Height="35" Margin="296,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="464" Name="TehtavaTagi"/>
+        <ComboBox HorizontalAlignment="Left" Height="35" Margin="296,120,0,0" VerticalAlignment="Top" Width="464" Name="TehtavaTagi"/>
         <TextBox HorizontalAlignment="Left" Height="104" Margin="53,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="707" Name="TehtavaKuvaus"/>
         <DatePicker HorizontalAlignment="Left" Height="35" Margin="177,358,0,0" VerticalAlignment="Top" Width="141" Name="TehtavaMääräaika"/>
         <TextBlock HorizontalAlignment="Left" Height="26" Margin="53,36,0,0" TextWrapping="Wrap" Text="Tehtävän nimi" VerticalAlignment="Top" Width="223"/>
@@ -21,7 +21,7 @@
         <TextBlock HorizontalAlignment="Left" Height="26" Margin="53,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111"><Run Language="fi-fi" Text="Status"/></TextBlock>
         <ComboBox HorizontalAlignment="Left" Height="31" Margin="296,164,0,0" Text="To-Do" VerticalAlignment="Top" Width="464" Name="TehtavaStatus">
             <ComboBoxItem Content="To-Do"></ComboBoxItem>
-            <ComboBoxItem Content="Doing"></ComboBoxItem>
+            <ComboBoxItem Content="WIP"></ComboBoxItem>
             <ComboBoxItem Content="Testing"></ComboBoxItem>
             <ComboBoxItem Content="Done"></ComboBoxItem>
         </ComboBox>
