@@ -57,9 +57,10 @@
             <DataGrid x:Name="toDoList" Margin="10" Grid.Row="3" Grid.Column="0"
                   HorizontalAlignment="Stretch" 
                   AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding}"
+                      AllowDrop="True"
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   CanUserResizeRows="False" CanUserReorderColumns="False"
-                  CanUserResizeColumns="False"  MouseDoubleClick="List_MouseDoubleClick" >
+                  CanUserResizeColumns="False"  MouseDoubleClick="List_MouseDoubleClick"  Drop="HandleDropToDo">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Tag" Width="auto" Binding="{Binding Tag}"/>
@@ -68,8 +69,9 @@
                     <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}">
 
                         <DataGridTextColumn.ElementStyle>
-                            <Style>
+                            <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <EventSetter Event="MouseMove" Handler="toDoList_MouseMove"/>
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
@@ -80,35 +82,39 @@
             <DataGrid x:Name="wipList" Margin="10" Grid.Row="3" Grid.Column="1"
                   HorizontalAlignment="Stretch" 
                   AutoGenerateColumns="False" IsReadOnly="True"
+                  AllowDrop="True"
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   CanUserResizeRows="False" CanUserReorderColumns="False"
-                  CanUserResizeColumns="False"  MouseDoubleClick="List_MouseDoubleClick">
+                  CanUserResizeColumns="False"  MouseDoubleClick="List_MouseDoubleClick" Drop="HandleDropWIP">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Tag" Width="auto" Binding="{Binding Tag}"/>
                     <DataGridTextColumn Header="Due Date" Width="auto" Binding="{Binding DueDate}"/>
                     <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}">
                         <DataGridTextColumn.ElementStyle>
-                            <Style>
+                            <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <EventSetter Event="MouseMove" Handler="wipList_MouseMove"/>
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
             <DataGrid x:Name="testingList" Margin="10" Grid.Row="3" Grid.Column="2"
-                  AutoGenerateColumns="False" IsReadOnly="True"
+                  AutoGenerateColumns="False" IsReadOnly="False"
+                  AllowDrop="True"
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   CanUserResizeRows="False" CanUserReorderColumns="False"
-                  CanUserResizeColumns="False" MouseDoubleClick="List_MouseDoubleClick" >
+                  CanUserResizeColumns="False" MouseDoubleClick="List_MouseDoubleClick" Drop="HandleDropTesting">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Tag" Width="auto" Binding="{Binding Tag}"/>
                     <DataGridTextColumn Header="Due Date" Width="auto" Binding="{Binding DueDate}"/>
                     <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}">
                         <DataGridTextColumn.ElementStyle>
-                            <Style>
+                            <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <EventSetter Event="MouseMove" Handler="testingList_MouseMove"/>
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
@@ -117,17 +123,19 @@
             <DataGrid x:Name="doneList" Margin="10" Grid.Row="3" Grid.Column="3"
                   HorizontalAlignment="Stretch" 
                   AutoGenerateColumns="False" IsReadOnly="True"
+                  AllowDrop="True"
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   CanUserResizeRows="False" CanUserReorderColumns="False"
-                  CanUserResizeColumns="False"  MouseDoubleClick="List_MouseDoubleClick">
+                  CanUserResizeColumns="False"  MouseDoubleClick="List_MouseDoubleClick" Drop="HandleDropDone">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Tag" Width="auto" Binding="{Binding Tag}"/>
                     <DataGridTextColumn Header="Due Date" Width="auto" Binding="{Binding DueDate}"/>
                     <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}">
                         <DataGridTextColumn.ElementStyle>
-                            <Style>
+                            <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <EventSetter Event="MouseMove" Handler="doneList_MouseMove"/>
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>

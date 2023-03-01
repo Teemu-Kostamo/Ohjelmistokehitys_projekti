@@ -23,6 +23,9 @@ using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Globalization;
 using Microsoft.VisualBasic;
 using System.Xaml;
+using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
+using System.CodeDom;
 
 namespace Kanban
 {
@@ -48,6 +51,10 @@ namespace Kanban
         string GetDone = "Select * from Tehtava WHERE status like 'Done' AND UserId =";
         string DeleteUser = "Delete from CreateNewUser WHERE Id=";
         string UpdateId = "UPDATE Tehtava Set UserId =" + GetUserID("Tyhjä").ToString() + " WHERE UserId="+Kirjautumissivu.activeUser.Id.ToString();
+        string SetToDo = "UPDATE Tehtava Set Status = 'To-Do' WHERE Id=" + rivin_id;
+        string SetWIP = "UPDATE Tehtava Set Status = 'WIP' WHERE Id=" + rivin_id;
+        string SetTesting = "UPDATE Tehtava Set Status = 'Testing' WHERE Id=" + rivin_id;
+        string SetDone = "UPDATE Tehtava Set Status = 'Done' WHERE Id=" + rivin_id;
         public MainWindow()
         {
             InitializeComponent();
@@ -183,6 +190,117 @@ namespace Kanban
             Tehtävän_katselu KatseluSivu = new Tehtävän_katselu();
             KatseluSivu.ShowDialog();
         }
+
+        //Rivin valinta
+        private DataRowView FindDataRowViewFor(TextBlock textCell)
+        {
+            var asGridRow = textCell.BindingGroup.Owner as DataGridRow;
+            if (asGridRow != null)
+            {
+                return asGridRow.DataContext as DataRowView;
+
+            }
+            return null;
+
+
+        }
+
+        //Dragin aloitukset
+
+        private void toDoList_MouseMove(object sender, MouseEventArgs e)
+        {
+            TextBlock cellUnderMouse = sender as TextBlock;
+            if (cellUnderMouse != null && e.LeftButton == MouseButtonState.Pressed)
+            {
+                DataRowView draggedRow = FindDataRowViewFor(cellUnderMouse);
+                rivin_id = draggedRow.Row["Id"].ToString();
+                DragDrop.DoDragDrop(toDoList, draggedRow, DragDropEffects.Move);
+
+            }
+        }
+
+        private void wipList_MouseMove(object sender, MouseEventArgs e)
+        {
+            TextBlock cellUnderMouse = sender as TextBlock;
+            if (cellUnderMouse != null && e.LeftButton == MouseButtonState.Pressed)
+            {
+                DataRowView draggedRow = FindDataRowViewFor(cellUnderMouse);
+                rivin_id = draggedRow.Row["Id"].ToString();
+                DragDrop.DoDragDrop(wipList, draggedRow, DragDropEffects.Move);
+
+            }
+        }
+
+        private void testingList_MouseMove(object sender, MouseEventArgs e)
+        {
+            TextBlock cellUnderMouse = sender as TextBlock;
+            if (cellUnderMouse != null && e.LeftButton == MouseButtonState.Pressed)
+            {
+                DataRowView draggedRow = FindDataRowViewFor(cellUnderMouse);
+                rivin_id = draggedRow.Row["Id"].ToString();
+                DragDrop.DoDragDrop(testingList, draggedRow, DragDropEffects.Move);
+
+            }
+        }
+
+        private void doneList_MouseMove(object sender, MouseEventArgs e)
+        {
+            TextBlock cellUnderMouse = sender as TextBlock;
+            if (cellUnderMouse != null && e.LeftButton == MouseButtonState.Pressed)
+            {
+                DataRowView draggedRow = FindDataRowViewFor(cellUnderMouse);
+                rivin_id = draggedRow.Row["Id"].ToString();
+                DragDrop.DoDragDrop(doneList, draggedRow, DragDropEffects.Move);
+
+            }
+        }
+
+        // Dropit
+
+        private void HandleDropWIP(Object sender, DragEventArgs e)
+        {
+
+                SQL_Command(SetWIP + rivin_id, Tasks_db);
+                SQL_Command(GetToDo + SelectedUserID, Tasks_db);
+                SQL_Command(GetWIP + SelectedUserID, Tasks_db);
+                SQL_Command(GetTesting + SelectedUserID, Tasks_db);
+                SQL_Command(GetDone + SelectedUserID, Tasks_db);
+
+        }
+        private void HandleDropToDo(Object sender, DragEventArgs e)
+        {
+
+            SQL_Command(SetToDo + rivin_id, Tasks_db);
+            SQL_Command(GetToDo + SelectedUserID, Tasks_db);;
+            SQL_Command(GetWIP + SelectedUserID, Tasks_db);
+            SQL_Command(GetTesting + SelectedUserID, Tasks_db);
+            SQL_Command(GetDone + SelectedUserID, Tasks_db);
+
+        }
+        private void HandleDropTesting(Object sender, DragEventArgs e)
+        {
+
+            SQL_Command(SetTesting + rivin_id, Tasks_db);
+            SQL_Command(GetToDo + SelectedUserID, Tasks_db);
+            SQL_Command(GetWIP + SelectedUserID, Tasks_db);
+            SQL_Command(GetTesting + SelectedUserID, Tasks_db);
+            SQL_Command(GetDone + SelectedUserID, Tasks_db);
+        }
+        private void HandleDropDone(Object sender, DragEventArgs e)
+        {
+
+            SQL_Command(SetDone + rivin_id, Tasks_db);
+            SQL_Command(GetToDo + SelectedUserID, Tasks_db);
+            SQL_Command(GetWIP + SelectedUserID, Tasks_db);
+            SQL_Command(GetTesting + SelectedUserID, Tasks_db);
+            SQL_Command(GetDone + SelectedUserID, Tasks_db);
+
+        }
+
+
+
+
+
 
     }
 
