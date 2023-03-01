@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Windows.Markup;
+using Kanban;
 
 namespace Kanban
 {
@@ -72,7 +73,7 @@ namespace Kanban
                 connection.CreateTable<Tehtava>();
                 connection.Insert(tehtava);
             }
-
+            
             Close();
         }
 

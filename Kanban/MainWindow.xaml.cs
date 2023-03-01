@@ -70,6 +70,10 @@ namespace Kanban
         {
             Tehtavanluonti newTask = new Tehtavanluonti();
             newTask.ShowDialog();
+            SQL_Command(GetToDo + SelectedUserID, Tasks_db);
+            SQL_Command(GetWIP + SelectedUserID, Tasks_db);
+            SQL_Command(GetTesting + SelectedUserID, Tasks_db);
+            SQL_Command(GetDone + SelectedUserID, Tasks_db);
         }
 
         //Menun toiminnallisuudet---------------------------------------------
@@ -117,7 +121,6 @@ namespace Kanban
         }
         public void SQL_Command(string comm, string db)
         {
-
             using (System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(db))
             {
                 conn.Open();
@@ -154,7 +157,7 @@ namespace Kanban
         }
         private static int GetUserID(string name)
         {
-            User FoundUser = null;
+            User FoundUser = new User();
             foreach (User user in Kirjautumissivu.users)
             {
                 if (user.Name == name)

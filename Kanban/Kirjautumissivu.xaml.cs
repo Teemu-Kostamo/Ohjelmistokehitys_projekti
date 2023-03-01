@@ -54,7 +54,7 @@ namespace Kanban
                 Debug.WriteLine("USER-DATABASE");
                 foreach (User user in users)
                 {
-                    if (user.Name == "Tyhjä")
+                    if (user.Name == "Määrittämättömät")
                     {
                         tyhja_tekija = true;
                         break;
@@ -64,7 +64,7 @@ namespace Kanban
                 {
                     User tyhja = new User()
                     {
-                        Name = "Tyhjä",
+                        Name = "Määrittämättömät"
 
                     };
                     conn.Insert(tyhja);
