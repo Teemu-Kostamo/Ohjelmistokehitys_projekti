@@ -128,6 +128,19 @@ namespace Kanban
         }
         public void SQL_Command(string comm, string db)
         {
+            //Tarkistetaan jos DB on olemassa ja luodaan tarvittaessa.
+            if (!System.IO.File.Exists(@"Tasks.db"))
+            {
+                System.Data.SQLite.SQLiteConnection.CreateFile(@"Tasks.db");
+
+                using (var sqlite2 = new System.Data.SQLite.SQLiteConnection(@"Data Source=Tasks.db"))
+                {
+                    sqlite2.Open();
+                    string sql = "CREATE TABLE \"Tehtava\" (\"Id\" integer NOT NULL,\"Name\" varchar,\"Description\" varchar,\"Tag\" varchar,\"DueDate\" varchar, \"Status\" varchar,\"UserId\" INTEGER, PRIMARY KEY (\"Id\" AUTOINCREMENT))";
+                    System.Data.SQLite.SQLiteCommand command = new System.Data.SQLite.SQLiteCommand(sql, sqlite2);
+                    command.ExecuteNonQuery();
+                }
+            }
             using (System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(db))
             {
                 conn.Open();
@@ -209,10 +222,10 @@ namespace Kanban
 
         private void toDoList_MouseMove(object sender, MouseEventArgs e)
         {
-            TextBlock cellUnderMouse = sender as TextBlock;
-            if (cellUnderMouse != null && e.LeftButton == MouseButtonState.Pressed)
+            TextBlock valittuRivi = sender as TextBlock;
+            if (valittuRivi != null && e.LeftButton == MouseButtonState.Pressed)
             {
-                DataRowView draggedRow = FindDataRowViewFor(cellUnderMouse);
+                DataRowView draggedRow = FindDataRowViewFor(valittuRivi);
                 rivin_id = draggedRow.Row["Id"].ToString();
                 DragDrop.DoDragDrop(toDoList, draggedRow, DragDropEffects.Move);
 
@@ -221,10 +234,10 @@ namespace Kanban
 
         private void wipList_MouseMove(object sender, MouseEventArgs e)
         {
-            TextBlock cellUnderMouse = sender as TextBlock;
-            if (cellUnderMouse != null && e.LeftButton == MouseButtonState.Pressed)
+            TextBlock valittuRivi = sender as TextBlock;
+            if (valittuRivi != null && e.LeftButton == MouseButtonState.Pressed)
             {
-                DataRowView draggedRow = FindDataRowViewFor(cellUnderMouse);
+                DataRowView draggedRow = FindDataRowViewFor(valittuRivi);
                 rivin_id = draggedRow.Row["Id"].ToString();
                 DragDrop.DoDragDrop(wipList, draggedRow, DragDropEffects.Move);
 
@@ -233,10 +246,10 @@ namespace Kanban
 
         private void testingList_MouseMove(object sender, MouseEventArgs e)
         {
-            TextBlock cellUnderMouse = sender as TextBlock;
-            if (cellUnderMouse != null && e.LeftButton == MouseButtonState.Pressed)
+            TextBlock valittuRivi = sender as TextBlock;
+            if (valittuRivi != null && e.LeftButton == MouseButtonState.Pressed)
             {
-                DataRowView draggedRow = FindDataRowViewFor(cellUnderMouse);
+                DataRowView draggedRow = FindDataRowViewFor(valittuRivi);
                 rivin_id = draggedRow.Row["Id"].ToString();
                 DragDrop.DoDragDrop(testingList, draggedRow, DragDropEffects.Move);
 
@@ -245,10 +258,10 @@ namespace Kanban
 
         private void doneList_MouseMove(object sender, MouseEventArgs e)
         {
-            TextBlock cellUnderMouse = sender as TextBlock;
-            if (cellUnderMouse != null && e.LeftButton == MouseButtonState.Pressed)
+            TextBlock valittuRivi = sender as TextBlock;
+            if (valittuRivi != null && e.LeftButton == MouseButtonState.Pressed)
             {
-                DataRowView draggedRow = FindDataRowViewFor(cellUnderMouse);
+                DataRowView draggedRow = FindDataRowViewFor(valittuRivi);
                 rivin_id = draggedRow.Row["Id"].ToString();
                 DragDrop.DoDragDrop(doneList, draggedRow, DragDropEffects.Move);
 
