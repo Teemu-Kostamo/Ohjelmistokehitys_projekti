@@ -69,9 +69,38 @@ namespace Kanban
             }
             return null;
         }
+
         public void btnPalaa_paaikkunaan(object sender, EventArgs e)
         {
             Close();
+        }
+        private void SaveEdits_Click(object sender, RoutedEventArgs e)
+        {
+            int valittutekija = 0;
+            foreach (User user in Kirjautumissivu.users)
+            {
+                if (TehtavaTekija.SelectedValue == user.Name)
+                {
+                    valittutekija = user.Id;
+                }
+            }
+
+            using (SQLiteConnection connection = new SQLiteConnection(Tasks_db))
+            {
+                connection.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand("UPDATE dt SET Name = @name, Tag = @tag, Description = @description, DueDate = @duedate, Status = @status, UserID = @userid", connection))
+                {
+                    command.Parameters.AddWithValue("@name", TehtavaNimi.Text);
+                    command.Parameters.AddWithValue("@tag", TehtavaTagi.Text);
+                    command.Parameters.AddWithValue("@description", TehtavaKuvaus.Text);
+                    command.Parameters.AddWithValue("@duedate", TehtavaMääräaika.Text);
+                    command.Parameters.AddWithValue("@status", TehtavaStatus.Text);
+                    command.Parameters.AddWithValue("@userid", valittutekija);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
         }
     }
 }
