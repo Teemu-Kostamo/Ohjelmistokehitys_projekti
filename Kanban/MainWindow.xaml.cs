@@ -317,4 +317,19 @@ namespace Kanban
 
     }
 
+    public class DateTimeToBooleanConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var pvm = value.ToString();
+            DateTime myDate;
+            DateTime.TryParse(pvm, out myDate);
+            return myDate < DateTime.Now;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotSupportedException();
+        }
+    }
 }

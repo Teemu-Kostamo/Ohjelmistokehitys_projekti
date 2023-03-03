@@ -10,6 +10,9 @@
     Title="Kätevä Kanban-työkalu"
     WindowState="Maximized"
     WindowStyle="SingleBorderWindow">
+    <Window.Resources>
+        <local:DateTimeToBooleanConverter x:Key="DateTimeToBooleanConverter" />
+    </Window.Resources>
     <DockPanel>
         <!-- Menu -->
         <Menu DockPanel.Dock="Top">
@@ -64,10 +67,20 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Tag" Width="auto" Binding="{Binding Tag}"/>
-                    <DataGridTextColumn Header="Due Date" Width="auto" Binding="{Binding DueDate}"/>
-
+                    <DataGridTextColumn Header="Due Date" Width="auto" Binding="{Binding DueDate}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding DueDate, Converter={StaticResource DateTimeToBooleanConverter}}" Value="True">
+                                        <Setter Property="Background" Value="Red" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
                     <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}">
-
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -75,7 +88,6 @@
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
-
                 </DataGrid.Columns>
             </DataGrid>
 
@@ -89,7 +101,19 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Tag" Width="auto" Binding="{Binding Tag}"/>
-                    <DataGridTextColumn Header="Due Date" Width="auto" Binding="{Binding DueDate}"/>
+                    <DataGridTextColumn Header="Due Date" Width="auto" Binding="{Binding DueDate}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding DueDate, Converter={StaticResource DateTimeToBooleanConverter}}" Value="True">
+                                        <Setter Property="Background" Value="Red" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
                     <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="{x:Type TextBlock}">
@@ -109,7 +133,19 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="21" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Tag" Width="auto" Binding="{Binding Tag}"/>
-                    <DataGridTextColumn Header="Due Date" Width="auto" Binding="{Binding DueDate}"/>
+                    <DataGridTextColumn Header="Due Date" Width="auto" Binding="{Binding DueDate}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding DueDate, Converter={StaticResource DateTimeToBooleanConverter}}" Value="True">
+                                        <Setter Property="Background" Value="Red" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
                     <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="{x:Type TextBlock}">
