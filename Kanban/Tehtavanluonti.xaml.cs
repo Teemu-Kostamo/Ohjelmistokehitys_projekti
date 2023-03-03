@@ -48,31 +48,43 @@ namespace Kanban
         }
         private void OK_Button_Click(object sender, RoutedEventArgs e)
         {
-            int valittutekija = 0;
-            foreach (User user in Kirjautumissivu.users)
-            {
-                if (TehtavaTekija.SelectedValue == user.Name)
-                {
-                    valittutekija = user.Id;
-                }
-            }
+            
+            
 
             Tehtava tehtava = new Tehtava()
             {
                 Name = TehtavaNimi.Text,
-                Tag = TehtavaTagi.Text,
+                //Tag = TehtavaTagi.Text,
                 Description = TehtavaKuvaus.Text,
                 DueDate = TehtavaMääräaika.Text,
                 Status = TehtavaStatus.Text,
-                UserId = valittutekija,
-              
             };
+
+            foreach (User user in Kirjautumissivu.users)
+            {
+                if (TehtavaTekija.SelectedValue == user.Name)
+                {
+                    tehtava.UserId = user.Id;
+                }
+            }
+
+            if (UudenTaginLisays.Text != "")
+            {
+                TehtavaTagi.SelectedIndex = -1;
+                tehtava.Tag = UudenTaginLisays.Text;
+            }
+            else
+            {
+                tehtava.Tag = TehtavaTagi.Text;
+            }
 
             using (SQLite.SQLiteConnection connection = new SQLite.SQLiteConnection(App.Tasks_databasePath))
             {
                 connection.CreateTable<Tehtava>();
                 connection.Insert(tehtava);
             }
+
+
             
             Close();
         }
