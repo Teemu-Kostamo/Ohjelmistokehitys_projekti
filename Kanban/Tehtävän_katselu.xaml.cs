@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data.SQLite;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SQLite;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Kanban
 {
@@ -51,7 +39,7 @@ namespace Kanban
                 conn.Close();
                 TehtavaNimi.Text = dt.Rows[0][1].ToString();
                 TehtavaKuvaus.Text = dt.Rows[0][2].ToString();
-                TehtavaTagi.Text= dt.Rows[0][3].ToString();
+                TehtavaTagi.Text = dt.Rows[0][3].ToString();
                 TehtavaStatus.Text = dt.Rows[0][5].ToString();
                 TehtavaMääräaika.Text = dt.Rows[0][4].ToString();
                 TehtavaTekija.Text = Get_username(Int32.Parse(dt.Rows[0][6].ToString()));

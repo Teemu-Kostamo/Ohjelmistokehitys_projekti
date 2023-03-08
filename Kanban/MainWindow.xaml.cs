@@ -1,31 +1,11 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data;
 using System.Data.SQLite;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Collections;
-using System.Drawing;
-using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
-using System.Globalization;
-using Microsoft.VisualBasic;
-using System.Xaml;
-using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
-using System.CodeDom;
 
 namespace Kanban
 {
@@ -49,8 +29,8 @@ namespace Kanban
         string GetWIP = "Select * from Tehtava WHERE status like 'WIP' AND UserId =";
         string GetTesting = "Select * from Tehtava WHERE status like 'Testing' AND UserId=";
         string GetDone = "Select * from Tehtava WHERE status like 'Done' AND UserId =";
-        string DeleteUser = "Delete from CreateNewUser WHERE Id=";
-        string UpdateId = "UPDATE Tehtava Set UserId =" + GetUserID("Tyhjä").ToString() + " WHERE UserId="+Kirjautumissivu.activeUser.Id.ToString();
+        string DeleteUser = "Delete from User WHERE Id=";
+        string UpdateId = "UPDATE Tehtava Set UserId =" + GetUserID("Tyhjä").ToString() + " WHERE UserId=" + Kirjautumissivu.activeUser.Id.ToString();
         string SetToDo = "UPDATE Tehtava Set Status = 'To-Do' WHERE Id=" + rivin_id;
         string SetWIP = "UPDATE Tehtava Set Status = 'WIP' WHERE Id=" + rivin_id;
         string SetTesting = "UPDATE Tehtava Set Status = 'Testing' WHERE Id=" + rivin_id;
@@ -83,6 +63,14 @@ namespace Kanban
             SQL_Command(GetDone + SelectedUserID, Tasks_db);
         }
 
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            SQL_Command(GetToDo + SelectedUserID, Tasks_db);
+            SQL_Command(GetWIP + SelectedUserID, Tasks_db);
+            SQL_Command(GetTesting + SelectedUserID, Tasks_db);
+            SQL_Command(GetDone + SelectedUserID, Tasks_db);
+        }
+
         //Menun toiminnallisuudet---------------------------------------------
         private void menubtnKirjauduUlos(object sender, RoutedEventArgs e)
         {
@@ -101,7 +89,7 @@ namespace Kanban
             result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
             if (result == MessageBoxResult.Yes)
             {
-                SQL_Command(UpdateId,Tasks_db);
+                SQL_Command(UpdateId, Tasks_db);
                 MessageBox.Show("Käyttäjä poistettu tietokannasta");
                 SQL_Command(DeleteUser + Kirjautumissivu.activeUser.Id, Users_db);
                 Kirjautumissivu kirsiv = new Kirjautumissivu();
@@ -120,11 +108,11 @@ namespace Kanban
         {
             ComboBox cmb = sender as ComboBox;
             SelectedUserID = GetUserID(kayttajat.SelectedItem.ToString());
-            SQL_Command(GetToDo + SelectedUserID,Tasks_db);
-            SQL_Command(GetWIP + SelectedUserID,Tasks_db);
+            SQL_Command(GetToDo + SelectedUserID, Tasks_db);
+            SQL_Command(GetWIP + SelectedUserID, Tasks_db);
             SQL_Command(GetTesting + SelectedUserID, Tasks_db);
-            SQL_Command(GetDone+ SelectedUserID, Tasks_db);
-            
+            SQL_Command(GetDone + SelectedUserID, Tasks_db);
+
         }
         public void SQL_Command(string comm, string db)
         {
@@ -151,7 +139,7 @@ namespace Kanban
                 SQLiteDataAdapter adap = new SQLiteDataAdapter(command);
 
                 DataTable dt = new DataTable("Tasks");
-                
+
                 adap.Fill(dt);
                 if (comm.Contains("To-Do"))
                 {
@@ -182,7 +170,7 @@ namespace Kanban
             {
                 if (user.Name == name)
                 {
-                    FoundUser= user;
+                    FoundUser = user;
                 }
             }
             return FoundUser.Id;
@@ -273,18 +261,18 @@ namespace Kanban
         private void HandleDropWIP(Object sender, DragEventArgs e)
         {
 
-                SQL_Command(SetWIP + rivin_id, Tasks_db);
-                SQL_Command(GetToDo + SelectedUserID, Tasks_db);
-                SQL_Command(GetWIP + SelectedUserID, Tasks_db);
-                SQL_Command(GetTesting + SelectedUserID, Tasks_db);
-                SQL_Command(GetDone + SelectedUserID, Tasks_db);
+            SQL_Command(SetWIP + rivin_id, Tasks_db);
+            SQL_Command(GetToDo + SelectedUserID, Tasks_db);
+            SQL_Command(GetWIP + SelectedUserID, Tasks_db);
+            SQL_Command(GetTesting + SelectedUserID, Tasks_db);
+            SQL_Command(GetDone + SelectedUserID, Tasks_db);
 
         }
         private void HandleDropToDo(Object sender, DragEventArgs e)
         {
 
             SQL_Command(SetToDo + rivin_id, Tasks_db);
-            SQL_Command(GetToDo + SelectedUserID, Tasks_db);;
+            SQL_Command(GetToDo + SelectedUserID, Tasks_db); ;
             SQL_Command(GetWIP + SelectedUserID, Tasks_db);
             SQL_Command(GetTesting + SelectedUserID, Tasks_db);
             SQL_Command(GetDone + SelectedUserID, Tasks_db);

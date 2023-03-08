@@ -1,23 +1,7 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Diagnostics;
-using System.Windows.Markup;
-using Kanban;
 
 namespace Kanban
 {
@@ -26,20 +10,20 @@ namespace Kanban
     /// </summary>
     public partial class Tehtavanluonti : Window
     {
-        public static List<Tehtava> tasks = new List<Tehtava>();   
+        public static List<Tehtava> tasks = new List<Tehtava>();
         public static List<string> tags = new List<string>();
         string GetUniqueTags = "SELECT DISTINCT Tag from Tehtava ORDER BY Tag";
         public Tehtavanluonti()
         {
-            
-            
+
+
             InitializeComponent();
             foreach (User user in Kirjautumissivu.users)
             {
                 TehtavaTekija.Items.Add(user.Name);
             }
             ReadTaskDatabase();
-            
+
         }
 
         private void Peruuta_Button_Click(object sender, RoutedEventArgs e)
@@ -48,8 +32,8 @@ namespace Kanban
         }
         private void OK_Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            
+
+
 
             Tehtava tehtava = new Tehtava()
             {
@@ -85,7 +69,7 @@ namespace Kanban
             }
 
 
-            
+
             Close();
         }
 
@@ -105,7 +89,7 @@ namespace Kanban
             }
             TehtavaTagi.ItemsSource = tags.Distinct();
         }
-        
+
     }
 }
 
