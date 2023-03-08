@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace Kanban
@@ -10,7 +14,10 @@ namespace Kanban
     /// </summary>
     public partial class Tehtävän_katselu : Window
     {
-        string testi = MainWindow.rivin_id;
+        string task_id = MainWindow.rivin_id;
+
+        public static List<Tehtava> tasks = new List<Tehtava>();
+        public static List<string> tags = new List<string>();
 
         string Tasks_db = "Data Source=Tasks.db";
         string Users_db = "Data Source=Users.db";
@@ -19,7 +26,12 @@ namespace Kanban
         public Tehtävän_katselu()
         {
             InitializeComponent();
-            SQL_Command(GetTaskId + testi, Tasks_db);
+            foreach (User user in Kirjautumissivu.users)
+            {
+                TehtavaTekija.Items.Add(user.Name);
+            }
+            ReadTaskDatabase();
+            SQL_Command(GetTaskId + task_id, Tasks_db);
         }
         public void SQL_Command(string comm, string db)
         {
@@ -57,6 +69,17 @@ namespace Kanban
             }
             return null;
         }
+        public string Get_userid(string username)
+        {
+            foreach (User user in Kirjautumissivu.users)
+            {
+                if (username == user.Name)
+                {
+                    return user.Id.ToString();
+                }
+            }
+            return null;
+        }
 
         public void btnPalaa_paaikkunaan(object sender, EventArgs e)
         {
@@ -64,7 +87,7 @@ namespace Kanban
         }
         private void SaveEdits_Click(object sender, RoutedEventArgs e)
         {
-            string UpdateTask = "UPDATE Tehtava Set Name = '" + TehtavaNimi.Text + "', Description ='" + TehtavaKuvaus.Text + "', Tag ='" + TehtavaTagi.Text + "',DueDate = '" + TehtavaMääräaika.Text + "' WHERE Id=" + testi;
+            string UpdateTask = "UPDATE Tehtava Set Name = '" + TehtavaNimi.Text + "', Description ='" + TehtavaKuvaus.Text + "', Tag ='" + TehtavaTagi.Text + "',DueDate = '" + TehtavaMääräaika.Text + "',Status = '" + TehtavaStatus.Text + "',UserId = '" + Get_userid(TehtavaTekija.Text) + "' WHERE Id=" + task_id;
             using (System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(Tasks_db))
             {
                 conn.Open();
@@ -74,6 +97,22 @@ namespace Kanban
                 conn.Close();
                 Close();
             }
+        }
+        void ReadTaskDatabase()
+        {
+            using (SQLite.SQLiteConnection connection = new SQLite.SQLiteConnection(App.Tasks_databasePath))
+            {
+                connection.CreateTable<Tehtava>();
+                tasks = (connection.Table<Tehtava>().ToList()).OrderBy(u => u.Id).ToList();
+                foreach (Tehtava tehtava in tasks)
+                {
+                    if (tehtava.Tag != "")
+                    {
+                        tags.Add(tehtava.Tag);
+                    }
+                }
+            }
+            TehtavaTagi.ItemsSource = tags.Distinct();
         }
     }
 }

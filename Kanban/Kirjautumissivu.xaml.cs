@@ -7,32 +7,20 @@ using System.Windows.Media;
 
 namespace Kanban
 {
-
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    /// 
     public partial class Kirjautumissivu : Window
     {
-        public static string kayttaja = "";
         private string login_error = "Kirjautuminen ei onnistunut, koska käyttäjätunnus ja salasana eivät täsmää.";
 
-        private SolidColorBrush error = new SolidColorBrush(Colors.Red);
-        private SolidColorBrush normal = new SolidColorBrush(Colors.Black);
-
         public static List<User> users = new List<User>();
-        public static User activeUser = null;
+        public static User activeUser;
 
         string SQL_User = "Select Username and Password from CreateNewUser";
         public Kirjautumissivu()
         {
             InitializeComponent();
-            Debug.WriteLine("TESTITESTITESTI FOLDERPATH: " + App.Users_databasePath);
-
             ReadUserDataBase();
         }
-        //Tietokannan haku funktio
-
+        //Tietokannan haku ja määrittämättömän käyttäjän luonti tarvittaessa
         void ReadUserDataBase()
         {
             bool tyhja_tekija = false;
@@ -40,7 +28,6 @@ namespace Kanban
             {
                 conn.CreateTable<User>();
                 users = (conn.Table<User>().ToList()).OrderBy(u => u.Id).ToList();
-                Debug.WriteLine("USER-DATABASE");
                 foreach (User user in users)
                 {
                     if (user.Name == "Määrittämättömät")

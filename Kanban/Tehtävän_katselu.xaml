@@ -8,7 +8,7 @@
         Title="Tehtävän katselu" Height="450" Width="800">
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="26" Margin="296,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="464" Name="TehtavaNimi"/>
-        <ComboBox HorizontalAlignment="Left" Height="29" Margin="296,77,0,0" VerticalAlignment="Top" Width="464" Name="TehtavaTekija"/>
+        <ComboBox HorizontalAlignment="Left" Height="29" Margin="296,77,0,0" VerticalAlignment="Top" Width="464" Name="TehtavaTekija" Text=""/>
         <ComboBox HorizontalAlignment="Left" Height="35" Margin="296,120,0,0" Text="" VerticalAlignment="Top" Width="464" Name="TehtavaTagi"/>
         <TextBox HorizontalAlignment="Left" Height="104" Margin="53,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="707" Name="TehtavaKuvaus"/>
         <DatePicker HorizontalAlignment="Left" Height="35" Margin="178,358,0,0" VerticalAlignment="Top" Width="141" Name="TehtavaMääräaika"/>

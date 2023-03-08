@@ -46,10 +46,6 @@ namespace Kanban
             //Populoidaan näkyvä nimi aktiiviseksi käyttäjäksi
             kayttajat.Text = Kirjautumissivu.activeUser.Name.ToString();
             kirjautunut_kayttaja.Text = Kirjautumissivu.activeUser.Name.ToString();
-
-
-
-
         }
 
         //Painikkeiden toiminnallisuudet--------------------------------------
