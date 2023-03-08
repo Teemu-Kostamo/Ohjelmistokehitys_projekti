@@ -13,8 +13,6 @@ namespace Kanban
 
         public static List<User> users = new List<User>();
         public static User activeUser;
-
-        string SQL_User = "Select Username and Password from CreateNewUser";
         public Kirjautumissivu()
         {
             InitializeComponent();
@@ -60,9 +58,7 @@ namespace Kanban
             string nimi = Signer.Text;
             string pass = signerpass.Password;
             bool correct = false;
-
             ReadUserDataBase();
-
             foreach (User user in users)
             {
                 if (user.Username == nimi && user.Password == pass)
