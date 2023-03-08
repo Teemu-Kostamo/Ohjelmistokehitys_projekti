@@ -190,6 +190,10 @@ namespace Kanban
             }
             Tehtävän_katselu KatseluSivu = new Tehtävän_katselu();
             KatseluSivu.ShowDialog();
+            SQL_Command(GetToDo + SelectedUserID, Tasks_db);
+            SQL_Command(GetWIP + SelectedUserID, Tasks_db);
+            SQL_Command(GetTesting + SelectedUserID, Tasks_db);
+            SQL_Command(GetDone + SelectedUserID, Tasks_db);
         }
 
         //Rivin valinta
